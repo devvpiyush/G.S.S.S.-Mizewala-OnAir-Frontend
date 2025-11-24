@@ -32,10 +32,7 @@ function Help() {
 
     try {
       SET_API_CALLED(true);
-      const response = await axios.post(
-        "http://localhost:8000/api/help/submit",
-        Data
-      );
+      const response = await axios.post(import.meta.env.VITE_API_URL, Data);
       console.log(response.data);
     } catch (error) {
       throw Error(`${error.response?.data || error}`);
