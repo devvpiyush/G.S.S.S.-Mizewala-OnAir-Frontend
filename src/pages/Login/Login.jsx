@@ -52,7 +52,7 @@ function Login() {
     try {
       SET_API_CALLED(true);
       const response = await axios.post(
-        import.meta.env.VITE_API_URL,
+        "https://backend-9gh6.onrender.com/api/auth/login",
         Credentials,
         { withCredentials: true }
       );
