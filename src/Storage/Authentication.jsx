@@ -25,12 +25,10 @@ export function AuthProvider({ children }) {
       const publicRoutes = [
         "/login",
         "/help",
-        "/reset",
-        "/credits",
         "/gallery",
         "/about",
-        "/about/release_notes",
-        "/about/credits",
+        "/release_notes",
+        "/credits",
       ];
       if (!publicRoutes.includes(location.pathname)) {
         navigate("/login", { replace: true });
