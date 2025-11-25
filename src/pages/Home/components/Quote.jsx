@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 function Quote() {
-  const [QUOTE, SET_QUOTE] = useState("...");
+  const [QUOTE, SET_QUOTE] = useState("");
 
   async function fetchQuote() {
     const res = await axios.get("http://localhost:8000/api/public/quote");

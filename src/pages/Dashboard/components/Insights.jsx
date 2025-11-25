@@ -4,36 +4,7 @@ import { usePreference } from "@hooks/ContextHooks";
 function Insights() {
   const { LANGUAGE } = usePreference();
 
-  const DATES = [
-    {
-      DATE: 1,
-      STATUS: "PRESENT",
-    },
-    {
-      DATE: 2,
-      STATUS: "PRESENT",
-    },
-    {
-      DATE: 3,
-      STATUS: "PRESENT",
-    },
-    {
-      DATE: 4,
-      STATUS: "PRESENT",
-    },
-    {
-      DATE: 5,
-      STATUS: "HOLIDAY",
-    },
-    {
-      DATE: 6,
-      STATUS: "ABSENT",
-    },
-    {
-      DATE: 7,
-      STATUS: "PRESENT",
-    },
-  ];
+  const DATES = [];
 
   function getColor(STATUS) {
     let color = null;

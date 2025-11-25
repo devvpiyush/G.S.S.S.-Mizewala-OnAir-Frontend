@@ -163,12 +163,6 @@ function Login() {
           </div>
         </div>
         <div className="flex flex-col gap-4 mt-4">
-          <Link
-            to="/reset"
-            className={`font-inter font-semibold cursor-pointer`}
-          >
-            Forgot Password?
-          </Link>
           <button
             type="submit"
             className={

@@ -30,7 +30,7 @@ function ATM() {
     UPDATE_STD_LIST(
       STD_LIST.map((STD) => {
         if (STD.ID === block.ID) {
-          return { ...STD, marked: true }; // Create a new object with the updated 'age'
+          return { ...STD, marked: true };
         }
         return STD; // Return other objects as they are
       })

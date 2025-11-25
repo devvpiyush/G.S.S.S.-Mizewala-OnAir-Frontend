@@ -18,7 +18,6 @@ import Classic from "./Layouts/Classic.jsx";
 import Home from "@page/Home/Home";
 import Login from "@page/Login/Login";
 import Help from "@page/Help/Help";
-import Reset from "@page/Reset/Reset";
 import About from "@page/About/About";
 import Gallery from "@page/Gallery/Gallery";
 import Dashboard from "@page/Dashboard/Dashboard";
@@ -50,7 +49,6 @@ const router = createBrowserRouter([
         children: [
           { path: "login", element: <Login /> },
           { path: "help", element: <Help /> },
-          { path: "reset", element: <Reset /> },
         ],
       },
     ],
