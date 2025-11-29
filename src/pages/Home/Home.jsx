@@ -1,36 +1,45 @@
 // React Hooks
 import { useEffect, useState } from "react";
+import { addDays, format } from "date-fns";
 
 // Data
 import Information from "@/data/Information";
-import Release_Notes from "@/data/Release_Notes";
 
 // Local Components
 import Intro from "./components/Intro";
 import Quote from "./components/Quote";
 import Question from "./components/Question";
 import NewUpdate from "./components/NewUpdate";
+import API from "@utils/API";
 
 function Home() {
-  // States & Variables
-  const date = new Date();
-
   // New Update Notification (Block)
   const [NOTIFY, SET_NOTIFY] = useState();
-  const TODAY =
-    date.getFullYear() * 10000 + (date.getMonth() + 1) * 100 + date.getDate();
+  const [NEW_UPDATE_DATA, SET_NEW_UPDATE_DATA] = useState(null);
 
-  useEffect(() => {
-    if (Release_Notes[0].NOTIFY_TILL >= TODAY) {
+  async function CheckNewUpdate() {
+    SET_NEW_UPDATE_DATA(null);
+    const response = await API("GET", "public/latestupdate", false);
+    if (
+      format(new Date(response.data.mongodata.createdAt), "yyyyMMdd") <=
+      format(addDays(new Date(), 30), "yyyyMMdd")
+    ) {
       SET_NOTIFY(true);
+      return response.data.mongodata;
     } else {
       SET_NOTIFY(false);
     }
+  }
+
+  useEffect(() => {
+    CheckNewUpdate().then((data) => {
+      SET_NEW_UPDATE_DATA(data);
+    });
   }, []);
 
   return (
     <>
-      {NOTIFY && <NewUpdate SET_NOTIFY={SET_NOTIFY} />}
+      {NOTIFY && <NewUpdate SET_NOTIFY={SET_NOTIFY} data={NEW_UPDATE_DATA} />}
       <Quote />
       <Intro />
       {Information.map((Info, Index) => (

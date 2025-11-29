@@ -9,7 +9,7 @@ function ReleaseNotes() {
   const [RELEASE_NOTES, UPDATE_RELEASE_NOTES] = useState([]);
   async function getNotes() {
     const response = await API("GET", "public/updates", false);
-    UPDATE_RELEASE_NOTES(response.data.ReleaseNotes);
+    UPDATE_RELEASE_NOTES(response.data.mongodata);
   }
 
   useEffect(() => {

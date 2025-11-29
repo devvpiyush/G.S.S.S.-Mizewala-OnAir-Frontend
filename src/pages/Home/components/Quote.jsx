@@ -6,10 +6,10 @@ function Quote() {
 
   async function fetchQuote() {
     const response = await API("GET", "public/quote", true);
-    if (!response.data.quote) {
+    if (!response.data.mongodata) {
       SET_QUOTE("Teachers plant seeds of knowledge that grow forever.");
     } else {
-      SET_QUOTE(response.data.quote);
+      SET_QUOTE(response.data.mongodata);
     }
   }
 

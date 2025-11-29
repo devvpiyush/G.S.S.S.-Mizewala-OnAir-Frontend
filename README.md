@@ -14,8 +14,11 @@
 <!-- getMonth() + 1 → Numeric month (1–12) of the Year. e.g. 2 -->
 <!-- getYear() →  Current full (4-digit) Year. e.g. 2025 -->
 <!-- format(new Date(), "a") →  Time Abbreveation for 12 Hours Clock Format e.g. AM or PM -->
+<!-- format(new Date(), "d") →  Format in Single Digit Date if < 10. e.g. 1 -->
+<!-- format(new Date(), "dd") →  Format in Double Digit Date if < 10. e.g. 01 -->
 <!-- format(new Date(), 'MM') →  Month with Prefix 0 if < 10. e.g. 02 -->
 <!-- format(new Date(), "do") →  Date with Suffix. e.g. 31st -->
 <!-- format(new Date(), "EEEE") →  Full Day Name of the Weak. e.g. Monday -->
 <!-- format(date, "MMMM") →  Full Month Name of the Year. e.g. January -->
 <!-- format(new Date(), "MMM") + "." →  Short Month Name of the Year. e.g. Feb. -->
+<!-- format(new Date(), "yyyy") + "." →  Format in current full (4-digit) Year. e.g. 2025 -->

@@ -81,7 +81,7 @@ function ATM() {
         <div className="bg-white rounded-md border-2 border-gray-700">
           <div className="flex items-center justify-between py-3 px-4 max-sm:px-2">
             <span className="text-[#c0c0c0] text-lg max-sm:hidden font-semibold">
-              {format(new Date(), "do")} {format(new Date(), "MMM") + "."}{" "}
+              {format(new Date(), "do")} {format(new Date(), "MMM.")}{" "}
               {getYear(new Date())}
             </span>
             <span className="text-lg max-sm:text-base font-semibold text-red-500">

@@ -43,11 +43,13 @@ function Navbar() {
             <img src={Gallery} width={25} alt="Gallery" />
           </Link>
         </div>
-        <div className="hidden md:block cursor-pointer">
-          <Link to="/dashboard">
-            <img src={Dashboard} width={25} alt="Dashboard" />
-          </Link>
-        </div>
+        {USER.USER_TYPE !== "GUEST" ? (
+          <div className="hidden md:block cursor-pointer">
+            <Link to="/dashboard">
+              <img src={Dashboard} width={25} alt="Dashboard" />
+            </Link>
+          </div>
+        ) : null}
         <div className="hidden md:block cursor-pointer">
           <Link to="/about">
             <img src={About} width={25} alt="About" />
