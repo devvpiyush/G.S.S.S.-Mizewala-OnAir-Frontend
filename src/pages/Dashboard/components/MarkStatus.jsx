@@ -1,9 +1,9 @@
-function ATM_Status({ STD_ID, Text, Background, Status, Mark }) {
+function MarkStatus({ STD_USTA_PIN, Text, Background, Status, Mark }) {
   return (
     <label className="relative cursor-pointer">
       <input
         type="radio"
-        name={`STATUS-${STD_ID}`}
+        name={`STATUS-${STD_USTA_PIN}`}
         value={Status}
         className="peer hidden"
         onClick={() => {
@@ -19,4 +19,4 @@ function ATM_Status({ STD_ID, Text, Background, Status, Mark }) {
   );
 }
 
-export default ATM_Status;
+export default MarkStatus;

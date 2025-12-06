@@ -24,7 +24,7 @@ import Dashboard from "@page/Dashboard/Dashboard";
 import Notifications from "@page/Notifications/Notifications";
 
 // Dashboard Tools
-import ATM from "@page/Dashboard/tools/ATM.jsx";
+import Marker from "@page/Dashboard/tools/Marker.jsx";
 
 const router = createBrowserRouter([
   {
@@ -41,7 +41,7 @@ const router = createBrowserRouter([
           { path: "gallery", element: <Gallery /> },
           { path: "notifications", element: <Notifications /> },
           { path: "dashboard", element: <Dashboard /> },
-          { path: "dashboard/attendence", element: <ATM /> },
+          { path: "dashboard/marker", element: <Marker /> },
         ],
       },
       {

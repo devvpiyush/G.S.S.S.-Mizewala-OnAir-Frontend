@@ -10,7 +10,7 @@ import Intro from "./components/Intro";
 import Quote from "./components/Quote";
 import Question from "./components/Question";
 import NewUpdate from "./components/NewUpdate";
-import API from "@utils/API";
+import api from "@utils/api";
 
 function Home() {
   // New Update Notification (Block)
@@ -19,7 +19,7 @@ function Home() {
 
   async function CheckNewUpdate() {
     SET_NEW_UPDATE_DATA(null);
-    const response = await API("GET", "public/latestupdate", false);
+    const response = await api("GET", "public/latestupdate", false);
     if (
       format(new Date(response.data.mongodata.createdAt), "yyyyMMdd") <=
       format(addDays(new Date(), 30), "yyyyMMdd")

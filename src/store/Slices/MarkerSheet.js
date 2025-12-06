@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const ATM_Sheet_Slice = createSlice({
-  name: "ATM_Sheet",
+const MarkerSheetSlice = createSlice({
+  name: "MarkerSheet",
   initialState: [],
   reducers: {
     Mark: (state, action) => {
@@ -22,5 +22,5 @@ const ATM_Sheet_Slice = createSlice({
   },
 });
 
-export const ATM_Sheet_Actions = ATM_Sheet_Slice.actions;
-export default ATM_Sheet_Slice.reducer;
+export const MarkerActions = MarkerSheetSlice.actions;
+export default MarkerSheetSlice.reducer;

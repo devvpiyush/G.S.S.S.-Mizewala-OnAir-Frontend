@@ -1,6 +1,6 @@
 import axios from "axios";
 
-async function API(REQUEST_TYPE, END_POINT, CREDENTIALS, DATA) {
+async function api(REQUEST_TYPE, END_POINT, CREDENTIALS, DATA) {
   const API_URI = `https://api.gsssmirzewala.in/api/${END_POINT}`;
 
   if (REQUEST_TYPE === "GET") {
@@ -17,4 +17,4 @@ async function API(REQUEST_TYPE, END_POINT, CREDENTIALS, DATA) {
   }
 }
 
-export default API;
+export default api;

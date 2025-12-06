@@ -1,5 +1,5 @@
 // Local Modules
-import API from "@utils/API";
+import api from "@utils/api";
 import { format } from "date-fns";
 
 // Local Hooks
@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 function ReleaseNotes() {
   const [RELEASE_NOTES, UPDATE_RELEASE_NOTES] = useState([]);
   async function getNotes() {
-    const response = await API("GET", "public/updates", false);
+    const response = await api("GET", "public/updates", false);
     UPDATE_RELEASE_NOTES(response.data.mongodata);
   }
 

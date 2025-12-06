@@ -2,13 +2,13 @@
 import { format, getDate, getMonth, getYear } from "date-fns";
 
 // Local Components
-import ATM_Status from "./ATMStatus";
+import MarkStatus from "./MarkStatus";
 
-function ATM_Student({ Avatar, ID, Name, Father, Mark }) {
+function MarkerStudentRow({ Avatar, USTA_PIN, Name, Father, Mark }) {
   function handleMarkAttendence(status) {
     // Creating Entry Object
     const Entry = {
-      ID: ID,
+      USTA_PIN: USTA_PIN,
       Name: Name,
       Father: Father,
       Status: status,
@@ -40,15 +40,15 @@ function ATM_Student({ Avatar, ID, Name, Father, Mark }) {
         </div>
       </div>
       <div className="flex flex-row items-center justify-center gap-2 border-2 border-white">
-        <ATM_Status
-          STD_ID={ID}
+        <MarkStatus
+          STD_USTA_PIN={USTA_PIN}
           Text="P"
           Background="bg-green-700"
           Status="Present"
           Mark={handleMarkAttendence}
         />
-        <ATM_Status
-          STD_ID={ID}
+        <MarkStatus
+          STD_USTA_PIN={USTA_PIN}
           Text="A"
           Background="bg-red-700"
           Status="Absent"
@@ -59,4 +59,4 @@ function ATM_Student({ Avatar, ID, Name, Father, Mark }) {
   );
 }
 
-export default ATM_Student;
+export default MarkerStudentRow;

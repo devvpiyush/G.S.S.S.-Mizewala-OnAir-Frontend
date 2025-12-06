@@ -3,13 +3,13 @@ import { configureStore } from "@reduxjs/toolkit";
 
 // Slices
 import User from "./Slices/User";
-import ATM_Sheet from "./Slices/ATM_Sheet";
+import MarkerSheet from "./Slices/MarkerSheet";
 
 // Configuring Store
 const STORE = configureStore({
   reducer: {
     USER: User,
-    ATM_SHEET: ATM_Sheet,
+    MARKER_SHEET: MarkerSheet,
   },
 });
 

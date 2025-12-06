@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import API from "@utils/API";
+import api from "@utils/api";
 
 function Quote() {
   const [QUOTE, SET_QUOTE] = useState();
 
   async function fetchQuote() {
-    const response = await API("GET", "public/quote", true);
+    const response = await api("GET", "public/quote", true);
     if (!response.data.mongodata) {
       SET_QUOTE("Teachers plant seeds of knowledge that grow forever.");
     } else {

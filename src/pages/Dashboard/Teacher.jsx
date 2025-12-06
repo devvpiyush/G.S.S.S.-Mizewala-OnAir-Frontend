@@ -15,6 +15,7 @@ function Teacher() {
       UPDATE_MODAL_STATE("hidden");
     }
   }
+
   return (
     <>
       <Notification UPDATE_MODAL_STATE={handleModalState} />

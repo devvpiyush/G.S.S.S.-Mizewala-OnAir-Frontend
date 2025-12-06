@@ -8,7 +8,7 @@ import { useSelector } from "react-redux";
 import Preview_STD from "./Preview_STD";
 
 function Preview({ UPDATE_PREVIEW_STATE }) {
-  const store = useSelector((store) => store.ATM_SHEET);
+  const store = useSelector((store) => store.MARKER_SHEET);
   const STD_LIST = [];
   JSON.parse(JSON.stringify(store)).map((entries) => {
     STD_LIST.push(entries);
@@ -45,7 +45,7 @@ function Preview({ UPDATE_PREVIEW_STATE }) {
                 Name={STD.Name}
                 Father={STD.Father}
                 Status={STD.Status}
-                key={STD.ID}
+                key={STD.USTA_PIN}
               />
             );
           })
@@ -59,7 +59,7 @@ export default Preview;
 
 // Submit Action
 export async function PreviewAction({ request }) {
-  const store = useSelector((store) => store.ATM_SHEET);
+  const store = useSelector((store) => store.MARKER_SHEET);
 
   // Sanitizing Data
   const USTA_PIN = useBSF(formData.get("USTA_PIN"));

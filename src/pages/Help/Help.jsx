@@ -4,7 +4,7 @@ import { useState } from "react";
 
 // Local Modules
 import { useBRTSF } from "@hooks/SecurityHooks";
-import API from "@utils/API";
+import api from "@utils/api";
 import API_Loader from "@ui/API_Loader";
 import API_Status from "@ui/API_Status";
 
@@ -31,7 +31,7 @@ function Help() {
 
     try {
       SET_API_CALLED(true);
-      const response = await API("POST", "help/submit", false, {
+      const response = await api("POST", "help/submit", false, {
         email,
         concern,
       });

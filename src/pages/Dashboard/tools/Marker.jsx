@@ -15,27 +15,31 @@ import Avatar from "@/assets/public/Avatar.svg";
 import Holiday_Light from "@graphics/Holiday_Light.svg";
 
 // Local Components
-import ATM_Student from "../components/ATMStudent";
+import MarkerStudentRow from "../components/MarkerStudentRow";
 import Preview from "../components/Preview";
 import Message from "@components/Message";
 
-// Redux Slices
-import { ATM_Sheet_Actions } from "@/store/Slices/ATM_Sheet";
+// Utilities
+import api from "@utils/api";
 
-function ATM() {
+// Redux Slices
+import { MarkerActions } from "@/store/Slices/MarkerSheet";
+
+function Marker() {
   const [PREVIEW_STATE, UPDATE_PREVIEW_STATE] = useState("hidden");
+  const [Class, SetClass] = useState(9);
   const dispatch = useDispatch();
 
-  function handleMarkAttendence(block) {
+  function handleMarkAttendence(entry) {
     UPDATE_STD_LIST(
       STD_LIST.map((STD) => {
-        if (STD.ID === block.ID) {
+        if (STD.ID === entry.ID) {
           return { ...STD, marked: true };
         }
         return STD; // Return other objects as they are
       })
     );
-    dispatch(ATM_Sheet_Actions.Mark(block));
+    dispatch(MarkerActions.Mark(entry));
   }
 
   // Using Hooks
@@ -46,7 +50,6 @@ function ATM() {
 
   const [MESSAGE, SET_MESSAGE] = useState();
   const Messages = [
-    "😎 Relax teacher ji! even the attendence Register is sleeping Today.",
     "☕ Take a break! Attendance is also sipping chai today.",
     "🏖️ It’s a holiday! If you try marking attendance, even the system will say ‘chill karo’ 😌",
     "📚 School closed, attendance closed, stress also closed. Enjoy!",
@@ -61,6 +64,9 @@ function ATM() {
   }
 
   useEffect(() => {
+    const response = api("GET", `tch/students/class/${Class}`).then((data) => {
+      UPDATE_STD_LIST(Array(data.data));
+    });
     SET_MESSAGE(GetNotificationMessage());
   }, []);
 
@@ -85,7 +91,7 @@ function ATM() {
               {getYear(new Date())}
             </span>
             <span className="text-lg max-sm:text-base font-semibold text-red-500">
-              Class 9th
+              Class {Class}
             </span>
             <button
               type="button"
@@ -105,15 +111,15 @@ function ATM() {
                 </div>
               </>
             )}
-            {STD_LIST.map((STD_INFO) => {
+            {STD_LIST.map((info) => {
               return (
-                <ATM_Student
-                  Avatar={STD_INFO.Avatar}
-                  ID={STD_INFO.ID}
-                  Name={STD_INFO.Name}
-                  Father={STD_INFO.Father}
-                  isMarked={STD_INFO.marked}
-                  key={STD_INFO.ID}
+                <MarkerStudentRow
+                  Avatar={Avatar} // Temporary
+                  USTA_PIN={info.ustaPin}
+                  Name={info.name}
+                  Father={info.studentRef.fatherName}
+                  isMarked={info.marked}
+                  key={info.ustaPin}
                   Mark={handleMarkAttendence}
                 />
               );
@@ -125,4 +131,4 @@ function ATM() {
   );
 }
 
-export default ATM;
+export default Marker;

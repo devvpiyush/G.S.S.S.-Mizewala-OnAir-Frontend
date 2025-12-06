@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 // Local Modules
 import { useBSF } from "@hooks/SecurityHooks";
-import API from "@utils/API";
+import api from "@utils/api";
 import API_Loader from "@ui/API_Loader";
 import API_Status from "@ui/API_Status";
 
@@ -51,7 +51,7 @@ function Login() {
 
     try {
       SET_API_CALLED(true);
-      const response = await API("POST", "auth/login", true, {
+      const response = await api("POST", "auth/login", true, {
         ustaPin,
         password,
       });
