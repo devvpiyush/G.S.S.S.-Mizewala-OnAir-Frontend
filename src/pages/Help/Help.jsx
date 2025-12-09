@@ -35,7 +35,8 @@ function Help() {
         email,
         concern,
       });
-      if (response) {
+
+      if (response.status === 200 && response.data.success) {
         SET_SUCCESS(
           "Your help request has been submitted! We'll get back to you soon!"
         );

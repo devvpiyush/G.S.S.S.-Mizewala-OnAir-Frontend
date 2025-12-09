@@ -55,7 +55,8 @@ function Login() {
         ustaPin,
         password,
       });
-      if (response) {
+      if (response.status === 200 && response.data.success) {
+        sessionStorage.setItem("loggedIn", true);
         SET_SUCCESS("Successfully logged in. Redirecting...");
       }
     } catch (error) {

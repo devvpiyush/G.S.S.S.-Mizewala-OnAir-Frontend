@@ -63,10 +63,15 @@ function Marker() {
     return Messages[RandomNumber];
   }
 
+  async function fetchUsers() {
+    return await api("GET", `tch/students/class/${Class}`);
+  }
+
   useEffect(() => {
-    const response = api("GET", `tch/students/class/${Class}`).then((data) => {
+    const response = fetchUsers();
+    if (response.status === 200 && response.data.success) {
       UPDATE_STD_LIST(data.data.mongodata);
-    });
+    }
     SET_MESSAGE(GetNotificationMessage());
   }, []);
 

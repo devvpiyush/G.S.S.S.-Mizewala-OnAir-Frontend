@@ -1,17 +1,17 @@
 import axios from "axios";
 
-async function api(REQUEST_TYPE, END_POINT, CREDENTIALS, DATA) {
-  const API_URI = `https://api.gsssmirzewala.in/api/${END_POINT}`;
+async function api(REQUEST_TYPE, END_POINT, WITH_CREDENTIALS = true, DATA) {
+  const API_URI = `http://localhost:8000/api/${END_POINT}`;
 
   if (REQUEST_TYPE === "GET") {
     return await axios.get(API_URI, {
-      withCredentials: CREDENTIALS ? true : false,
+      withCredentials: WITH_CREDENTIALS ? true : false,
     });
   } else if (REQUEST_TYPE === "POST") {
     return await axios.post(
       API_URI,
       { data: DATA },
-      { withCredentials: CREDENTIALS ? true : false }
+      { withCredentials: WITH_CREDENTIALS ? true : false }
     );
   } else {
     return new Error("Error: Invalid Request Type");

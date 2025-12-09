@@ -6,16 +6,22 @@ export default AuthContext;
 
 export const AuthProvider = ({ children }) => {
   const [User, SetUser] = useState();
+
+  async function fetchMyInfo() {
+    return await api("GET", "auth/me");
+  }
+
   useEffect(() => {
-    api("GET", "auth/me", true).then(async (res) => {
-      if (!res.ok) {
+    if (sessionStorage.getItem("loggedIn")) {
+      const response = fetchMyInfo();
+      if (response.status === 200 && response.data.success) {
+        const UserData = response.data.mongodata;
+        console.log(UserData);
+      } else {
         SetUser(null);
         return;
-      } else {
-        const UserData = await res.json();
-        console.log(UserData);
       }
-    });
+    }
   }, []);
   return (
     <AuthContext.Provider value={{ User, SetUser }}>
