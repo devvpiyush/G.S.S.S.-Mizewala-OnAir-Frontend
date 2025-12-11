@@ -4,12 +4,14 @@ import { Form, Link } from "react-router-dom";
 // React Hooks
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 // Local Modules
 import { useBSF } from "@hooks/SecurityHooks";
 import api from "@utils/api";
-import API_Loader from "@ui/API_Loader";
-import API_Status from "@ui/API_Status";
+import API_Loader from "@components/API_Loader";
+import API_Status from "@components/API_Status";
+import { User_Actions } from "@/store/slices/UserSlice";
 
 // Icons
 import Open_Eye from "@icons/Open_Eye.svg";
@@ -21,6 +23,7 @@ import styles from "./Login.module.css";
 function Login() {
   // Declarations
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   // States
   const [USTA_PIN, SET_USTA_PIN] = useState("");
@@ -28,7 +31,6 @@ function Login() {
 
   const [API_CALLED, SET_API_CALLED] = useState(false);
   const [ERROR, SET_ERROR] = useState(null);
-  const [SUCCESS, SET_SUCCESS] = useState(null);
 
   const [Password_Visibility, SET_Password_Visibility] = useState("hidden");
   const [Eye_Icon_Visibility, SET_Eye_Icon_Visibility] = useState("hidden");
@@ -57,7 +59,18 @@ function Login() {
       });
       if (response.status === 200 && response.data.success) {
         sessionStorage.setItem("loggedIn", true);
-        SET_SUCCESS("Successfully logged in. Redirecting...");
+        const { name, userType, gender, photoUrl } = response.data.mongodata;
+        dispatch(
+          User_Actions.SET_USER({
+            name,
+            userType,
+            gender,
+            photoUrl,
+          })
+        );
+        navigate("/");
+      } else {
+        SET_ERROR(response.data.message);
       }
     } catch (error) {
       SET_ERROR(error.message);
@@ -79,8 +92,7 @@ function Login() {
   }
 
   useEffect(() => {
-    const IsUser = sessionStorage.getItem("User");
-    if (IsUser) {
+    if (sessionStorage.getItem("loggedIn")) {
       navigate("/");
     }
   }, [navigate]);
@@ -165,17 +177,14 @@ function Login() {
           </div>
         </div>
         {ERROR !== null && <API_Status type="error" message={ERROR} />}
-        {SUCCESS !== null && <API_Status type="success" message={SUCCESS} />}
         <div className="flex flex-col gap-4 mt-4">
           {API_CALLED && <API_Loader />}
-          {SUCCESS === null && (
-            <button
-              type="submit"
-              className={`bg-black text-white font-inter w-fit rounded-sm cursor-pointer font-semibold px-12 py-2`}
-            >
-              {ERROR !== null ? "Retry" : "Login"}
-            </button>
-          )}
+          <button
+            type="submit"
+            className={`bg-black text-white font-inter w-fit rounded-sm cursor-pointer font-semibold px-12 py-2`}
+          >
+            {ERROR !== null ? "Retry" : "Login"}
+          </button>
         </div>
       </Form>
       <div className="w-full flex flex-row justify-between">

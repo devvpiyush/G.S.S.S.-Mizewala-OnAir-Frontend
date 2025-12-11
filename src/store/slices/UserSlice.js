@@ -2,11 +2,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const INITIAL_USER_INFO = {
-  ID: null,
-  USTA_PIN: null,
-  NAME: "Guest",
-  USER_TYPE: "GUEST",
-  IS_LOGGED_IN: null,
+  userType: "GUEST",
 };
 
 const User_Slice = createSlice({
@@ -23,5 +19,5 @@ const User_Slice = createSlice({
 });
 
 // Exportion Block
-export const User_Info_Actions = User_Slice.actions;
+export const User_Actions = User_Slice.actions;
 export default User_Slice.reducer;

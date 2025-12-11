@@ -2,9 +2,9 @@
 import { Provider as ReduxProvider } from "react-redux";
 
 // Context API Providers (Block)
-import { HolidayProvider } from "./Storage/Holiday";
-import { PrefProvider } from "./Storage/Preferences";
-import { AuthProvider } from "./Storage/Auth";
+import { HolidayProvider } from "./storage/Holiday";
+import { PrefProvider } from "./storage/Preferences";
+import { AuthProvider } from "./storage/Auth";
 
 // React Redux (Block)
 import STORE from "./store/index";

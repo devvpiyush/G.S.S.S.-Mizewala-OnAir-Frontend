@@ -65,7 +65,7 @@ function NotificationModal({ UPDATE_MODAL_STATE }) {
         <img src={Avatar} alt="Avatar" />
         <div className="w-full flex flex-col">
           <Link to="" className="font-semibold">
-            {USER.NAME}
+            {USER.name}
           </Link>
           <div>
             <textarea

@@ -43,7 +43,7 @@ function Navbar() {
             <img src={Gallery} width={25} alt="Gallery" />
           </Link>
         </div>
-        {USER.USER_TYPE !== "GUEST" ? (
+        {USER.userType !== "GUEST" ? (
           <div className="hidden md:block cursor-pointer">
             <Link to="/dashboard">
               <img src={Dashboard} width={25} alt="Dashboard" />
@@ -60,7 +60,7 @@ function Navbar() {
             <img src={Notifications} width={25} alt="Notifications" />
           </Link>
         </div>
-        <Link to={USER.USER_TYPE === "GUEST" ? "/login" : "/profile"}>
+        <Link to={USER.userType === "GUEST" ? "/login" : "/profile"}>
           <button
             className={`flex items-center justify-center border-1 rounded-full p-1 px-2 gap-2 cursor-pointer`}
             type="button"
@@ -73,7 +73,7 @@ function Navbar() {
               loading="lazy"
             />
             <span className="font-semibold text-md">
-              {USER.USER_TYPE === "GUEST" ? "Login" : USER.NAME}
+              {USER.userType === "GUEST" ? "Login" : USER.name}
             </span>
           </button>
         </Link>

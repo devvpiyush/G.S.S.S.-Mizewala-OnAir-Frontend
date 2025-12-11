@@ -23,7 +23,7 @@ function Navigation() {
           <img src={Gallery} alt="Gallery" width={25} />
         </Link>
       </div>
-      {USER.USER_TYPE !== "GUEST" ? (
+      {USER.userType !== "GUEST" ? (
         <div>
           <Link to="/dashboard">
             <img src={Dashboard} alt="Dashboard" width={25} />

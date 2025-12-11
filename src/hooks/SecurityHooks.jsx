@@ -1,5 +1,5 @@
 // Master Hooks of Secuity
-import { BSF, BRTSF } from "@/Security/Sanitizers";
+import { BSF, BRTSF } from "@/security/Sanitizers";
 
 // 1. BSF (Basic Sanitization Function)
 export const useBSF = (string) => {

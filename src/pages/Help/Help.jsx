@@ -5,8 +5,8 @@ import { useState } from "react";
 // Local Modules
 import { useBRTSF } from "@hooks/SecurityHooks";
 import api from "@utils/api";
-import API_Loader from "@ui/API_Loader";
-import API_Status from "@ui/API_Status";
+import API_Loader from "@components/API_Loader";
+import API_Status from "@components/API_Status";
 
 // Styles
 import styles from "./Help.module.css";

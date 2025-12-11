@@ -2,8 +2,8 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 // Slices
-import User from "./Slices/User";
-import MarkerSheet from "./Slices/MarkerSheet";
+import User from "./slices/UserSlice";
+import MarkerSheet from "./slices/MarkerSlice";
 
 // Configuring Store
 const STORE = configureStore({

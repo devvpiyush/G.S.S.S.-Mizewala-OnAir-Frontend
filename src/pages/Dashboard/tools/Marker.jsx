@@ -23,7 +23,7 @@ import Message from "@components/Message";
 import api from "@utils/api";
 
 // Redux Slices
-import { MarkerActions } from "@/store/Slices/MarkerSheet";
+import { MarkerActions } from "@/store/slices/MarkerSlice";
 
 function Marker() {
   const [PREVIEW_STATE, UPDATE_PREVIEW_STATE] = useState("hidden");
@@ -63,15 +63,12 @@ function Marker() {
     return Messages[RandomNumber];
   }
 
-  async function fetchUsers() {
-    return await api("GET", `tch/students/class/${Class}`);
-  }
-
   useEffect(() => {
-    const response = fetchUsers();
-    if (response.status === 200 && response.data.success) {
-      UPDATE_STD_LIST(data.data.mongodata);
-    }
+    api("GET", `tch/get/students/class/${Class}`).then((res) => {
+      if (res.status === 200 && res.data.success) {
+        UPDATE_STD_LIST(res.data.mongodata);
+      }
+    });
     SET_MESSAGE(GetNotificationMessage());
   }, []);
 
