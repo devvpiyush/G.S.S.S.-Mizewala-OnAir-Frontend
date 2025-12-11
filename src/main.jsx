@@ -10,8 +10,8 @@ import "../public/fonts.css";
 import App from "./App";
 
 // Layouts
-import Minimalist from "./layouts/Minimalist.jsx";
-import Classic from "./layouts/Classic.jsx";
+import Minimalist from "@/layouts/Minimalist.jsx";
+import Classic from "@/layouts/Classic.jsx";
 
 // Pages
 import Home from "@page/Home/Home";
