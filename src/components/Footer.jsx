@@ -43,12 +43,14 @@ function Footer() {
           </Link>
         </div>
         <div className="flex items-center justify-end gap-4 md:gap-6">
-          <img
-            src={Instagram}
-            width={25}
-            alt="Instragram_Icon"
-            className="cursor-pointer"
-          />
+          <Link target="_blank" to="https://www.instagram.com/gsssmirzawala/">
+            <img
+              src={Instagram}
+              width={25}
+              alt="Instragram_Icon"
+              className="cursor-pointer"
+            />
+          </Link>
           <img src={X} width={25} alt="X_Icon" className="cursor-pointer" />
           <img
             src={Threads}
