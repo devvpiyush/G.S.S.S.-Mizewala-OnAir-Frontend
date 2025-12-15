@@ -44,7 +44,6 @@ function Login() {
 
   // Functions
   function handleSkip() {
-    sessionStorage.setItem("Guest", true);
     navigate("/");
   }
 
@@ -62,7 +61,6 @@ function Login() {
         password,
       });
       if (response.status === 200 && response.data.success) {
-        sessionStorage.setItem("loggedIn", true);
         const { name, userType, gender, photoUrl } = response.data.mongodata;
         if (userType === "STD") {
           const { studentRef } = response.data.mongodata;
@@ -122,9 +120,7 @@ function Login() {
   }
 
   useEffect(() => {
-    if (sessionStorage.getItem("loggedIn")) {
-      navigate("/");
-    }
+    // navigate("/"); Navigate if User if LoggedIn
   }, [navigate]);
 
   return (

@@ -12,14 +12,9 @@ function Logout() {
   });
   const navigate = useNavigate();
   useEffect(() => {
-    if (!sessionStorage.getItem("loggedIn")) {
+    api("POST", "auth/logout", true, {}).then(() => {
       navigate("/login");
-    } else {
-      api("POST", "auth/logout", true, {}).then(() => {
-        sessionStorage.clear("loggedIn");
-        navigate("/login");
-      });
-    }
+    });
   }, []);
 }
 
