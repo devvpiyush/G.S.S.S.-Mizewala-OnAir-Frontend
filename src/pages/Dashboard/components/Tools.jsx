@@ -7,7 +7,7 @@ function Tools() {
       Name: "Marker",
       Description:
         "Marker tool developed by G.S.S.S. Mirzewala is a tool that allows Class Teachers to Mark attendence of Students of their class on a daily basic as Present or Absent.",
-      Icon: "/src/assets/Icons/Check.svg",
+      Icon: "src/assets/Icons/Marker.svg",
       Route: "/dashboard/marker",
     },
   ];
