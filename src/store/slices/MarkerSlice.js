@@ -19,6 +19,9 @@ const MarkerSheetSlice = createSlice({
         state.push(action.payload); // Mark new Attendence
       }
     },
+    DeleteMark: (state, action) => {
+      return state.filter((entry) => entry.ID !== action.payload);
+    },
   },
 });
 

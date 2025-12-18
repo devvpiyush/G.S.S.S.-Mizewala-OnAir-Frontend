@@ -62,7 +62,7 @@ function NotificationModal({ UPDATE_MODAL_STATE }) {
       </div>
       <hr />
       <div className="flex items-start gap-3 p-3">
-        <img src={Avatar} alt="Avatar" />
+        <img width={40} height={40} src={Avatar} alt="Avatar" />
         <div className="w-full flex flex-col">
           <Link to="" className="font-semibold">
             {USER.name}

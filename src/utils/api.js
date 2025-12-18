@@ -3,7 +3,7 @@ import axios from "axios";
 
 async function api(REQUEST_TYPE, END_POINT, WITH_CREDENTIALS = true, DATA) {
   try {
-    const API_URI = `${import.meta.VITE_API_BASE_URL}/api/${END_POINT}`;
+    const API_URI = `${import.meta.env.VITE_API_BASE_URL}/api/${END_POINT}`;
     if (REQUEST_TYPE === "GET") {
       return await axios.get(API_URI, {
         withCredentials: WITH_CREDENTIALS ? true : false,

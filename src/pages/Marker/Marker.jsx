@@ -34,7 +34,7 @@ function Marker() {
         if (STD.ID === entry.ID) {
           return { ...STD, marked: true };
         }
-        return STD; // Return other objects as they are
+        return STD;
       })
     );
     dispatch(MarkerActions.Mark(entry));
@@ -45,7 +45,6 @@ function Marker() {
 
   // States
   const [STD_LIST, UPDATE_STD_LIST] = useState([]);
-
   const [MESSAGE, SET_MESSAGE] = useState();
   const Messages = [
     "☕ Take a break! Attendance is also sipping chai today.",
@@ -114,6 +113,7 @@ function Marker() {
             {STD_LIST.map((info) => {
               return (
                 <MarkerStudentRow
+                  ID={info._id}
                   Avatar={Avatar} // Temporary
                   USTA_PIN={info.ustaPin}
                   Name={info.name}

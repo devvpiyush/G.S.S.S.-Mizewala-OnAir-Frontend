@@ -1,13 +1,14 @@
-// Dependencies
+// External Modules
 import { format, getDate, getMonth, getYear } from "date-fns";
 
 // Local Components
 import MarkStatus from "./MarkStatus";
 
-function MarkerStudentRow({ Avatar, USTA_PIN, Name, Father, Mark }) {
+function MarkerStudentRow({ ID, Avatar, USTA_PIN, Name, Father, Mark }) {
   function handleMarkAttendence(status) {
     // Creating Entry Object
     const Entry = {
+      ID: ID,
       USTA_PIN: USTA_PIN,
       Name: Name,
       Father: Father,
