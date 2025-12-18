@@ -1,6 +1,7 @@
 // External Modules
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 // Local Modules
 import api from "@utils/api";
@@ -13,6 +14,7 @@ function Logout() {
   });
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const logout = async () => {
