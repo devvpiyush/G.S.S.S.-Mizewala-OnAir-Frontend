@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 
 // Icons
 import Instagram from "@social/Instagram.svg";
-import X from "@social/X.svg";
-import Threads from "@social/Threads.svg";
 
 function Footer() {
   return (
@@ -51,13 +49,6 @@ function Footer() {
               className="cursor-pointer"
             />
           </Link>
-          <img src={X} width={25} alt="X_Icon" className="cursor-pointer" />
-          <img
-            src={Threads}
-            width={25}
-            alt="Threads_Icon"
-            className="cursor-pointer"
-          />
         </div>
       </div>
     </div>
