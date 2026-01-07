@@ -3,12 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const INITIAL_STATE = {
   miPin: null,
-  userType: null,
+  userType: "GUEST",
   accountStatus: null,
   name: null,
   address: null,
   age: null,
-  avatarUrl: null,
+  avatarUrl: "https://res.cloudinary.com/dbelpwtoy/image/upload/v1767074898/Avatar_si1ngf.svg",
   gender: null,
   dateOfBirth: null,
   email: null,
