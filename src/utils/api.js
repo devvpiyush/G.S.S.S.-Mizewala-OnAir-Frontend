@@ -3,7 +3,7 @@ import axios from "axios";
 
 async function api(REQUEST_TYPE, END_POINT, WITH_CREDENTIALS = true, data) {
   try {
-    const API_URI = `http://localhost:8000/api/${END_POINT}`;
+    const API_URI = `${import.meta.env.JWT_SECRET}/api/${END_POINT}`;
     if (REQUEST_TYPE === "GET") {
       return await axios.get(API_URI, {
         withCredentials: WITH_CREDENTIALS ? true : false,
