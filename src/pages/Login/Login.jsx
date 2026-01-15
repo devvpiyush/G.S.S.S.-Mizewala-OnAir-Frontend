@@ -114,15 +114,24 @@ function Login() {
       >
         <div className="px-2 w-full flex justify-end">
           <a
-            className={`font-saira text-blue-600 font-semibold cursor-pointer`}
+            className="text-blue-600 font-semibold cursor-pointer"
+            style={{ fontFamily: "'Saira', sans-serif" }}
             onClick={handleSkip}
           >
             Skip
           </a>
         </div>
         <div className="flex flex-col gap-3 mt-4">
-          <h2 className={`font-inter text-2xl`}>Welcome back!</h2>
-          <p className={`font-inter text-sm font-light`}>
+          <h2
+            className="text-2xl"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
+            Welcome back!
+          </h2>
+          <p
+            className="text-sm font-light"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
             We're glad to see you again. Let's get started!
           </p>
         </div>
@@ -130,7 +139,8 @@ function Login() {
           <div className="w-[95%] flex flex-col gap-2">
             <label
               htmlFor="miPin"
-              className={`text-base font-medium font-inter`}
+              className="text-base font-medium"
+              style={{ fontFamily: "'Inter', sans-serif" }}
             >
               MI PIN
             </label>
@@ -190,7 +200,8 @@ function Login() {
           {LOGIN_API_CALLED && <API_Loader />}
           <button
             type="submit"
-            className={`bg-black text-white font-inter w-fit rounded-sm cursor-pointer font-semibold px-12 py-2`}
+            className="bg-black text-white w-fit rounded-sm cursor-pointer font-semibold px-12 py-2"
+            style={{ fontFamily: "'Inter', sans-serif" }}
           >
             {ERROR !== null ? "Retry" : "Login"}
           </button>
@@ -198,7 +209,10 @@ function Login() {
       </Form>
       <div className="w-full flex flex-row justify-between">
         <Link to="/help">
-          <button className="text-base font-semibold font-inter cursor-pointer px-2">
+          <button
+            className="text-base font-semibold cursor-pointer px-2"
+            style={{ fontFamily: "'Inter', sans-serif" }}
+          >
             Need Help?
           </button>
         </Link>

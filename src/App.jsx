@@ -1,6 +1,6 @@
 // External Modules
 import { Outlet } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 // Styles Sheets
 import "./App.css";
@@ -9,11 +9,16 @@ import "./App.css";
 import AppLoader from "@components/AppLoader";
 import health from "@utils/health.js";
 import heartbeat from "@utils/heartbeat.js";
-import RootProvider from "./RootProvider";
+import API_Loader from "@components/API_Loader";
+import { APIsContext } from "./storage/APIs";
 
 function App() {
+  // Declarations
+  const { AUTH_API_CALLED, LOGIN_API_CALLED } = useContext(APIsContext);
+
   // States
   const [LOADING, SET_LOADING] = useState(false);
+  const [API_LOADING, SET_API_LOADING] = useState(false);
 
   async function checkSession() {
     if (!sessionStorage.getItem("appLoader")) {
@@ -30,21 +35,27 @@ function App() {
   }
 
   useEffect(() => {
+    if (AUTH_API_CALLED || LOGIN_API_CALLED) {
+      SET_API_LOADING(true);
+    } else {
+      SET_API_LOADING(false);
+    }
+
     checkSession();
     heartbeat();
     const heatBeatInterval = setInterval(heartbeat, 30000); // Every 30 Seconds
 
     return () => clearInterval(heatBeatInterval);
-  }, []);
+  }, [AUTH_API_CALLED, LOGIN_API_CALLED]);
+
+  if (API_LOADING) {
+    return <API_Loader />;
+  }
 
   if (LOADING) {
     return <AppLoader />;
   }
-  return (
-    <RootProvider>
-      <Outlet />
-    </RootProvider>
-  );
+  return <Outlet />;
 }
 
 export default App;

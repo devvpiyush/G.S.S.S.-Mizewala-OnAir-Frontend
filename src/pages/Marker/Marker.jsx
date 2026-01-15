@@ -48,7 +48,7 @@ function Marker() {
     if (SP_USER.teacherInfo.assignedClass === null) {
       navigate("/");
     } else {
-      api("GET", `u/t/marker/class/${SP_USER.teacherInfo.assignedClass}`).then(
+      api("GET", `t/marker/class/${SP_USER.teacherInfo.assignedClass}`).then(
         (res) => {
           if (res.status === 200 && res.data.success) {
             UPDATE_STD_LIST(res.data.mongodata);

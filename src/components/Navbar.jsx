@@ -57,7 +57,9 @@ function Navbar() {
             <img src={Notifications} width={25} alt="Notifications" />
           </Link>
         </div>
-        <Link to={USER.userType === "GUEST" ? "/login" : "/profile"}>
+        <Link
+          to={USER.userType === "GUEST" ? "/login" : `/profile/${USER._id}`}
+        >
           <button
             className={`flex items-center justify-center border-1 rounded-full p-1 px-2 gap-2 cursor-pointer`}
             type="button"

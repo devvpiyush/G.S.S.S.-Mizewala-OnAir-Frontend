@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const INITIAL_STATE = {
   isLoggedIn: false,
+  _id: null,
   miPin: null,
   userType: "GUEST",
   accountStatus: null,
@@ -23,6 +24,7 @@ const CommonIdentitySlice = createSlice({
   reducers: {
     SETUP_NEW_USER: (state, action) => {
       state.isLoggedIn = true;
+      state._id = action.payload._id;
       state.miPin = action.payload.miPin;
       state.userType = action.payload.userType;
       state.accountStatus = action.payload.accountStatus;

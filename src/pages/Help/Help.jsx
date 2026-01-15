@@ -60,7 +60,10 @@ function Help() {
       </div>
       <div className="flex flex-col gap-2">
         <h1 className="text-2xl">Need Help?</h1>
-        <p className={`font-extralight font-inter`}>
+        <p
+          className="font-extralight"
+          style={{ fontFamily: "'Inter', sans-serif" }}
+        >
           Can’t find your concern? Fill out the form below and we’ll get back to
           you shortly!
         </p>
@@ -102,9 +105,8 @@ function Help() {
           ) : (
             <button
               type="submit"
-              className={
-                "bg-black text-white font-inter w-fit rounded-sm cursor-pointer font-semibold px-6 py-2"
-              }
+              className="bg-black text-white w-fit rounded-sm cursor-pointer font-semibold px-6 py-2"
+              style={{ fontFamily: "'Inter', sans-serif" }}
             >
               {ERROR !== null ? "Retry" : "Submit"}
             </button>
@@ -119,7 +121,10 @@ function Help() {
               <div className={styles.CARDS} key={Card.SERIAL_NUMBER}>
                 <span className={styles.CIRCLES}>{Card.SERIAL_NUMBER}</span>
                 <h2 className="font-semibold">{Card.QUESTION}</h2>
-                <p className={`font-light text-lg font-saira`}>
+                <p
+                  className="font-light text-lg"
+                  style={{ fontFamily: "'Saira', sans-serif" }}
+                >
                   <strong className="font-semibold">Ans: </strong>
                   {Card.ANSWER}
                 </p>

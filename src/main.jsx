@@ -1,11 +1,13 @@
-// Packages
+// Exteral Modules
 import "./i18n";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+// Local Modules
+import RootProvider from "./RootProvider";
+
 // Global CSS
 import "./index.css";
-import "../public/fonts.css";
 
 // App
 import App from "./App";
@@ -41,7 +43,8 @@ const router = createBrowserRouter([
           { path: "credits", element: <About /> },
           { path: "gallery", element: <Gallery /> },
           { path: "notifications", element: <Notifications /> },
-          { path: "profile", element: <Profile /> },
+          { path: "profile/", element: <Profile /> },
+          { path: "profile/:id", element: <Profile /> },
           { path: "dashboard", element: <Dashboard /> },
           { path: "dashboard/marker", element: <Marker /> },
         ],
@@ -59,5 +62,7 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router} />
+  <RootProvider>
+    <RouterProvider router={router} />
+  </RootProvider>
 );
