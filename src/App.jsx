@@ -35,7 +35,7 @@ function App() {
   }
 
   useEffect(() => {
-    if (AUTH_API_CALLED || LOGIN_API_CALLED) {
+    if (AUTH_API_CALLED) {
       SET_API_LOADING(true);
     } else {
       SET_API_LOADING(false);
@@ -46,7 +46,7 @@ function App() {
     const heatBeatInterval = setInterval(heartbeat, 30000); // Every 30 Seconds
 
     return () => clearInterval(heatBeatInterval);
-  }, [AUTH_API_CALLED, LOGIN_API_CALLED]);
+  }, [AUTH_API_CALLED]);
 
   if (API_LOADING) {
     return <API_Loader />;

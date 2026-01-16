@@ -1,5 +1,5 @@
 // Data
-import CREDITS_LIST from "@/data/Credits_List";
+import CREDITS_LIST from "@/data/Credits";
 
 // Local Modules
 import useHead from "@hooks/Head.jsx";

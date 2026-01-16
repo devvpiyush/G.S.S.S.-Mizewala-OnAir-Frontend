@@ -25,11 +25,11 @@ const CREDITS_LIST = [
   },
   {
     SERIAL_NUMBER: 4,
-    CREDIT_FOR: "Social Media Icons",
-    CREDIT_TO: "Mads Egmose",
+    CREDIT_FOR: "Icons",
+    CREDIT_TO: "Masum",
     LINKING_APP: "Figma",
     LINKING_APP_LINK:
-      "https://www.figma.com/community/file/839558611085349133/social-media-icons-logos",
+      "https://www.figma.com/community/file/1484102873652292483/check-validation-icons-free-download-svg-icons",
   },
   {
     SERIAL_NUMBER: 5,

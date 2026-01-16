@@ -8,12 +8,11 @@ import { useSelector } from "react-redux";
 import { Form, Link } from "react-router-dom";
 
 // Icons
-import Clock from "@icons/Clock.svg";
 import Image from "@icons/Image.svg";
 import Send from "@icons/Send.svg";
 import Synchronize from "@icons/Synchronize.svg";
 
-function NotificationModal({ UPDATE_MODAL_STATE }) {
+function CreateNotification() {
   const USER = useSelector((store) => store.COMMON_IDENTITY);
   // Who can see the Notification?
   const [CAN_VIEW, SET_CAN_VIEW] = useState("Who can see your Notification?");
@@ -44,19 +43,7 @@ function NotificationModal({ UPDATE_MODAL_STATE }) {
   }
 
   return (
-    <Form className="bg-white min-w-[500px] max-md:min-w-[350px] max-w-[500px] max-md:max-w-[350px] rounded-[10px] shadow-lg">
-      <div className="flex items-center justify-between py-3 px-4">
-        <button
-          type="button"
-          className="font-semibold text-red-500 cursor-pointer"
-          onClick={() => UPDATE_MODAL_STATE("hidden")}
-        >
-          Cancel
-        </button>
-        <p className="font-semibold">Release Notification</p>
-        <img src={Clock} width={25} alt="Clock" className="cursor-pointer" />
-      </div>
-      <hr />
+    <Form className="bg-white border-1 border-[#c0c0c0] rounded-[10px]">
       <div className="flex items-start gap-3 p-3">
         <img width={40} height={40} src={USER.avatarUrl} alt="Avatar" />
         <div className="w-full flex flex-col">
@@ -68,9 +55,9 @@ function NotificationModal({ UPDATE_MODAL_STATE }) {
               id="content"
               name="content"
               autoComplete="off"
-              placeholder="What's new?"
+              placeholder="What's new to notify?"
               required
-              className="w-full min-h-30 max-md:min-h-10 max-h-50 outline-none font-semibold text-[#c0c0c0] resize-none"
+              className="w-full min-h-20 max-h-50 outline-none font-medium text-black resize-none"
             />
             {selectedImage && (
               <img
@@ -94,7 +81,7 @@ function NotificationModal({ UPDATE_MODAL_STATE }) {
             <img
               src={Image}
               width={20}
-              alt="Add_Image"
+              alt="Upload_Image"
               className="cursor-pointer mt-2"
               onClick={() => {
                 fileInputRef.current.click();
@@ -106,7 +93,7 @@ function NotificationModal({ UPDATE_MODAL_STATE }) {
       <div className="p-3 flex items-center justify-between">
         <button
           type="button"
-          className="flex gap-2 font-semibold text-[#c0c0c0] cursor-pointer"
+          className="flex gap-2 text-[#c0c0c0] font-semibold cursor-pointer"
           onClick={handleViewChanger}
         >
           {CAN_VIEW}
@@ -123,4 +110,4 @@ function NotificationModal({ UPDATE_MODAL_STATE }) {
   );
 }
 
-export default NotificationModal;
+export default CreateNotification;
