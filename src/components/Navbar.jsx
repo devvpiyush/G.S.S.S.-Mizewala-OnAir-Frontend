@@ -68,6 +68,11 @@ function Navbar() {
               src={USER.avatarUrl}
               width={24}
               height={24}
+              style={{
+                maxWidth: "24px",
+                maxHeight: "24px",
+                borderRadius: "50%",
+              }}
               alt="Avatar"
               loading="lazy"
             />

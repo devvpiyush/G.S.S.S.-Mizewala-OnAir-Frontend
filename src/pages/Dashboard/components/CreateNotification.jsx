@@ -22,8 +22,6 @@ function CreateNotification() {
       SET_CAN_VIEW("Staff");
     } else if (CAN_VIEW === "Staff") {
       SET_CAN_VIEW("Schoolies");
-    } else if (CAN_VIEW === "Schoolies") {
-      SET_CAN_VIEW("Non-Schoolies");
     } else {
       SET_CAN_VIEW("Everyone");
     }
@@ -57,7 +55,7 @@ function CreateNotification() {
               autoComplete="off"
               placeholder="What's new to notify?"
               required
-              className="w-full min-h-20 max-h-50 outline-none font-medium text-black resize-none"
+              className="w-full min-h-20 max-h-50 outline-none font-normal text-black resize-none"
             />
             {selectedImage && (
               <img
