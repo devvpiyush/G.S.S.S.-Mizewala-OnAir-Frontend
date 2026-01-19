@@ -53,7 +53,7 @@ function Marker() {
           if (res.status === 200 && res.data.success) {
             UPDATE_STD_LIST(res.data.mongodata);
           }
-        }
+        },
       );
     }
     SET_MESSAGE(GetNotificationMessage());
@@ -62,11 +62,11 @@ function Marker() {
   function handleMarkAttendence(entry) {
     UPDATE_STD_LIST(
       STD_LIST.map((STD) => {
-        if (STD.ID === entry.ID) {
+        if (STD._id === entry.ID) {
           return { ...STD, marked: true };
         }
         return STD;
-      })
+      }),
     );
     dispatch(MarkerActions.Mark(entry));
   }
@@ -111,21 +111,23 @@ function Marker() {
               <>
                 <div className="fixed inset-0 bg-black/40 z-40"></div>
                 <div className="fixed inset-0 flex items-center justify-center z-50">
-                  <Preview UPDATE_PREVIEW_STATE={handlePreview} />
+                  <Preview
+                    UPDATE_PREVIEW_STATE={handlePreview}
+                    assignedClass={SP_USER.teacherInfo.assignedClass}
+                  />
                 </div>
               </>
             )}
             {STD_LIST.map((info) => {
               return (
                 <MarkerStudentRow
-                  ID={info._id}
-                  MI_PIN={info.miPin}
-                  Name={info.name}
+                  _id={info._id}
+                  name={info.name}
                   avatarUrl={info.avatarUrl}
-                  Father={info.fatherName}
+                  fatherName={info.fatherName}
                   isMarked={info.marked}
-                  key={info._id}
                   Mark={handleMarkAttendence}
+                  key={info._id}
                 />
               );
             })}

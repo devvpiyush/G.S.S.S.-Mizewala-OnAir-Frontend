@@ -7,21 +7,25 @@ const MarkerSheetSlice = createSlice({
   reducers: {
     Mark: (state, action) => {
       const entryIndex = state.findIndex(
-        (entry) => entry.ID === action.payload.ID
+        (entry) => entry._id === action.payload._id,
       );
 
       if (entryIndex !== -1) {
-        // Update existing Attendence entry Status
         state[entryIndex] = {
           ...state[entryIndex],
           ...action.payload,
         };
       } else {
-        state.push(action.payload); // Mark new Attendence
+        state.push({
+          _id: action.payload._id,
+          name: action.payload.name,
+          fatherName: action.payload.fatherName,
+          status: action.payload.status,
+        });
       }
     },
     DeleteMark: (state, action) => {
-      return state.filter((entry) => entry.ID !== action.payload);
+      return state.filter((entry) => entry._id !== action.payload);
     },
   },
 });

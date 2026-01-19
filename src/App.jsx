@@ -9,7 +9,6 @@ import "./App.css";
 import AppLoader from "@components/AppLoader";
 import health from "@utils/health.js";
 import heartbeat from "@utils/heartbeat.js";
-import API_Loader from "@components/API_Loader";
 import { APIsContext } from "./storage/APIs";
 
 function App() {

@@ -38,14 +38,13 @@ function Preview({ UPDATE_PREVIEW_STATE }) {
             You haven’t marked the attendance for any student yet.
           </p>
         ) : (
-          STD_LIST.map((STD, i) => {
+          STD_LIST.map((STD) => {
             return (
               <Preview_STD
-                i={i}
-                Name={STD.Name}
-                Father={STD.Father}
-                Status={STD.Status}
-                key={STD.MI_PIN}
+                name={STD.name}
+                fatherName={STD.fatherName}
+                status={STD.status}
+                key={STD._id}
               />
             );
           })
