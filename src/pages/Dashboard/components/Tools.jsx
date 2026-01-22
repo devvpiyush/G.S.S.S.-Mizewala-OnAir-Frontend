@@ -41,32 +41,6 @@ function Tools() {
           </div>
         </div>
       )}
-
-      <div className={styles.outline}>
-        <div className="flex flex-col gap-2">
-          <div className="w-full flex flex-col items-center justify-center gap-4">
-            <img src={MusicIcon} alt="Music Icon" className="max-w-10" />
-            <h4 className="text-center font-semibold">Music</h4>
-          </div>
-          <div>
-            <p className="text-center font-light text-[15px] px-3">
-              G.S.S.S. Mirzewala Music Player is a simple tool for teachers to
-              play prayers, motivational, and educational audio, helping create
-              a positive and focused school environment.
-            </p>
-          </div>
-        </div>
-        <div className="flex items-center justify-center py-3">
-          <button
-            className={styles.BUTTON}
-            onClick={() => {
-              navigate("/music");
-            }}
-          >
-            Next
-          </button>
-        </div>
-      </div>
     </div>
   );
 }
