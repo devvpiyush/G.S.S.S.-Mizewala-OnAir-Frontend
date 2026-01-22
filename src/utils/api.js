@@ -6,7 +6,7 @@ import ERRORS from "@/data/Errors.js"
 
 async function api(REQUEST_TYPE, END_POINT, WITH_CREDENTIALS = true, data) {
   try {
-    const API_URI = `http://localhost:8000/api/${END_POINT}`;
+    const API_URI = `${import.meta.env.VITE_API_BASE_URL}/api/${END_POINT}`;
     if (REQUEST_TYPE === "GET") {
       return await axios.get(API_URI, {
         withCredentials: WITH_CREDENTIALS ? true : false,
