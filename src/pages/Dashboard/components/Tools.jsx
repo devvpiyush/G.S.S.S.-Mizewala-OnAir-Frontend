@@ -7,7 +7,6 @@ import styles from "./styles/Tools.module.css";
 
 // Assets
 import MarkerIcon from "@icons/Marker.svg";
-import MusicIcon from "@icons/Music.svg";
 
 function Tools() {
   const SP_INFO = useSelector((store) => store.SPECIAL_IDENTITY);
