@@ -5,6 +5,7 @@ import { addDays, format } from "date-fns";
 // Local Components
 import Intro from "./components/Intro";
 import Quote from "./components/Quote";
+import PrincipalSays from "./components/PrincipalSays";
 import NewUpdate from "./components/NewUpdate";
 import Questions from "./components/Questions";
 import api from "@utils/api";
@@ -45,6 +46,7 @@ function Home() {
       {NOTIFY && <NewUpdate SET_NOTIFY={SET_NOTIFY} data={NEW_UPDATE_DATA} />}
       <Quote />
       <Intro />
+      <PrincipalSays />
       <section className="flex flex-col gap-4">
         <Questions />
       </section>
