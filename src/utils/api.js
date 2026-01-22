@@ -2,7 +2,7 @@
 import axios from "axios";
 
 // Local Modules
-import ERRORS from "@/data/Errors.js"
+import ERRORS from "@/data/Errors.js";
 
 async function api(REQUEST_TYPE, END_POINT, WITH_CREDENTIALS = true, data) {
   try {
@@ -21,7 +21,7 @@ async function api(REQUEST_TYPE, END_POINT, WITH_CREDENTIALS = true, data) {
       throw new Error("Server is not Responding. Try again later");
     }
     const errorCode = error.response.data?.errorCode || "WRONG";
-    const message = ERRORS.find((err) => err.code === errorCode)?.message
+    const message = ERRORS.find((err) => err.code === errorCode)?.message;
     const err = new Error(message);
     err.status = error.response.status;
 

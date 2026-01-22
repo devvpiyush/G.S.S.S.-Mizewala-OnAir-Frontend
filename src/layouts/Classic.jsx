@@ -10,7 +10,7 @@ import Footer from "@components/Footer";
 function Classic() {
   return (
     <>
-      <header>
+      <header className="sticky top-0 z-index-100 ">
         <Navbar />
       </header>
       <main className="min-h-screen">
