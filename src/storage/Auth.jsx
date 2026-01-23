@@ -1,6 +1,6 @@
 // External Modules
 import { useContext, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 // Local Modules
 import api from "@utils/api.js";
@@ -9,8 +9,10 @@ import { SpecialIdentityActions } from "@/store/slices/SpecialIdentitySlice";
 import { APIsContext } from "./APIs";
 
 export const AuthProvider = ({ children }) => {
-  const { SET_AUTH_API_CALLED } = useContext(APIsContext);
+  // Declarations
+  const USER = useSelector((store) => store.COMMON_IDENTITY);
   const dispatch = useDispatch();
+  const { SET_AUTH_API_CALLED } = useContext(APIsContext);
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -43,7 +45,9 @@ export const AuthProvider = ({ children }) => {
       }
     };
 
-    checkAuth();
+    if (USER.isLoggedIn) {
+      checkAuth();
+    }
   }, [dispatch]);
 
   return children;

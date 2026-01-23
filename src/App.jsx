@@ -1,5 +1,6 @@
 // External Modules
 import { Outlet } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { useContext, useEffect, useState } from "react";
 
 // Styles Sheets
@@ -13,6 +14,7 @@ import { APIsContext } from "./storage/APIs";
 
 function App() {
   // Declarations
+  const USER = useSelector((store) => store.COMMON_IDENTITY);
   const { AUTH_API_CALLED } = useContext(APIsContext);
 
   // States
@@ -42,10 +44,10 @@ function App() {
       SET_API_LOADING(false);
     }
 
-    heartbeat();
-    const heatBeatInterval = setInterval(heartbeat, 30000); // Every 30 Seconds
-
-    return () => clearInterval(heatBeatInterval);
+    if (USER.isLoggedIn) {
+      const sendHeartBeat = setInterval(heartbeat, 30000); // Every 30 Seconds
+      return () => clearInterval(sendHeartBeat);
+    }
   }, [AUTH_API_CALLED]);
 
   if (API_LOADING || LOADING) {
