@@ -21,11 +21,7 @@ async function api(REQUEST_TYPE, END_POINT, WITH_CREDENTIALS = true, data) {
       throw new Error("Server is not Responding. Try again later");
     }
     const errorCode = error.response.data?.errorCode || "WRONG";
-    console.log(error.response.data);
-    console.log(error.response.data?.errorCode);
-    console.log(errorCode);
     const message = ERRORS.find((err) => err.code === errorCode)?.message;
-    console.log(message);
     const err = new Error(message);
     err.status = error.response.status;
 
