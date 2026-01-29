@@ -62,22 +62,24 @@ function Login() {
         miPin,
         password,
       });
+      let refObj = response.data.mongodata.reference;
+      delete response.data.mongodata.reference;
       dispatch(
         CommonIdentityActions.SETUP_NEW_USER({
-          ...response.data.mongodata.common,
-        })
+          ...response.data.mongodata,
+        }),
       );
       if (response.data.mongodata.common.userType === "Teacher") {
         dispatch(
           SpecialIdentityActions.SETUP_TEACHER({
-            ...response.data.mongodata.special,
-          })
+            ...refObj,
+          }),
         );
       } else if (response.data.mongodata.common.userType === "Student") {
         dispatch(
           SpecialIdentityActions.SETUP_STUDENT({
-            ...response.data.mongodata.special,
-          })
+            ...refObj,
+          }),
         );
       }
       navigate("/");

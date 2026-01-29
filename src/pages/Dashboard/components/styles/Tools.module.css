@@ -1,5 +1,5 @@
 .outline {
-  margin: 2rem;
+  background-color: #fff;
   padding: 1.5rem 0.75rem 0.5rem 0.75rem;
   min-width: 300px;
   max-width: 300px;
@@ -17,7 +17,6 @@
 
 @media (max-width: 648px) {
   .outline {
-    max-width: 340px;
     width: 100%;
     gap: 1rem;
   }

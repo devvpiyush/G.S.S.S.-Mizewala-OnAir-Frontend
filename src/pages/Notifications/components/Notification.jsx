@@ -9,17 +9,12 @@ function Notification({ Avatar, posterName, text, time }) {
         />
         <div className="w-full flex flex-col">
           <span className="w-fit font-semibold">Posted by {posterName}</span>
-          <a
-            href=""
-            className="font-normal text-gray-500 tracking-wide cursor-pointer"
-          >
+          <p className="text-sm font-normal text-gray-500 tracking-wide">
             {text.length > 100 ? text.slice(0, 100) + "..." : text}
-          </a>
+          </p>
         </div>
       </div>
-      <span className="font-medium text-[var(--secondary)] text-end">
-        {time}
-      </span>
+      <span className="text-sm font-medium text-gray-400 text-end">{time}</span>
     </div>
   );
 }

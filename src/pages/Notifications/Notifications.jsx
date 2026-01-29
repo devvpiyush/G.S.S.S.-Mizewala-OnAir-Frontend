@@ -23,9 +23,16 @@ function Notifications() {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await api("GET", "p/fetch");
-        UPDATE_POSTS(response.data.data);
-        console.log(POSTS);
+        if (USER?.userType === "Teacher" && USER?.isLoggedIn) {
+          const response = await api("GET", "p/fetch/staff");
+          UPDATE_POSTS(response.data.data);
+        } else if (USER?.userType === "Student" && USER?.isLoggedIn) {
+          const response = await api("GET", "p/fetch/schoolies");
+          UPDATE_POSTS(response.data.data);
+        } else {
+          const response = await api("GET", "p/fetch/everyone");
+          UPDATE_POSTS(response.data.data);
+        }
       } catch (error) {
         console.log(error?.message || "Something went Wrong!");
       }

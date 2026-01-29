@@ -3,10 +3,9 @@ import { useSelector } from "react-redux";
 
 // Local Modules
 import useHead from "@hooks/Head.jsx";
-
-// Dashboards
 import Teacher from "./Teacher";
 import Student from "./Student";
+import Admin from "./Admin";
 
 function Dashboard() {
   useHead({
@@ -15,8 +14,9 @@ function Dashboard() {
   const USER = useSelector((store) => store.COMMON_IDENTITY);
   return (
     <>
-      {USER.userType === "Teacher" && <Teacher />}
       {USER.userType === "Student" && <Student />}
+      {USER.userType === "Teacher" && <Teacher />}
+      {USER.userType === "Admin" && <Admin />}
     </>
   );
 }
