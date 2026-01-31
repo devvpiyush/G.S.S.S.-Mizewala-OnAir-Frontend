@@ -25,7 +25,7 @@ function handleErrorAction(config) {
 }
 
 async function api(REQUEST_TYPE, END_POINT, WITH_CREDENTIALS = true, data) {
-  const API_URI = `http://localhost:8000/api/${END_POINT}`;
+  const API_URI = `${import.meta.env.VITE_API_BASE_URL}/api/${END_POINT}`;
   try {
     const call = await axios({
       method: REQUEST_TYPE,
