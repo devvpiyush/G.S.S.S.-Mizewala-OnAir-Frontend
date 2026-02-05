@@ -32,7 +32,7 @@ function PrincipalSays() {
           className="max-w-36 sm:max-w-52 max-h-36 sm:max-h-52 rounded-full"
         />
         <div className="text-center">
-          <h1 className="font-semibold">Mr. Parveen Middha</h1>
+          <h1 className="font-semibold">Mr. Parveen Kumar Middha</h1>
           <h2 className="font-normal">Principal</h2>
         </div>
       </div>
