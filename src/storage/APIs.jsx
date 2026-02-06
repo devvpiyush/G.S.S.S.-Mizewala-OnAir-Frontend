@@ -7,6 +7,7 @@ export const APIsContext = createContext();
 const APIsContextProvider = ({ children }) => {
   const [LOGIN_API_CALLED, SET_LOGIN_API_CALLED] = useState(false);
   const [AUTH_API_CALLED, SET_AUTH_API_CALLED] = useState(false);
+  const [PROFILE_API_CALLED, SET_PROFILE_API_CALLED] = useState(false);
   return (
     <APIsContext.Provider
       value={{
@@ -14,6 +15,8 @@ const APIsContextProvider = ({ children }) => {
         SET_LOGIN_API_CALLED,
         AUTH_API_CALLED,
         SET_AUTH_API_CALLED,
+        PROFILE_API_CALLED,
+        SET_PROFILE_API_CALLED,
       }}
     >
       {children}
