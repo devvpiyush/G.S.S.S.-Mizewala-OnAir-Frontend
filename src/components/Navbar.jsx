@@ -65,7 +65,7 @@ function Navbar() {
             type="button"
           >
             <img
-              src={USER.avatarUrl}
+              src={USER.profilePictureUrl}
               width={24}
               height={24}
               style={{
@@ -73,11 +73,20 @@ function Navbar() {
                 maxHeight: "24px",
                 borderRadius: "50%",
               }}
-              alt="Avatar"
+              alt="Profile-Picture"
               loading="lazy"
             />
-            <span className="font-semibold text-md">
+            <span className="hidden sm:block font-semibold text-md">
               {USER.userType === "GUEST" ? "Login" : USER.name}
+            </span>
+            <span className="sm:hidden font-semibold text-md">
+              {USER.userType === "GUEST"
+                ? "Login"
+                : (() => {
+                    return USER.name.length > 12
+                      ? USER.name.slice(0, 12) + "..."
+                      : USER.name;
+                  })()}
             </span>
           </button>
         </Link>

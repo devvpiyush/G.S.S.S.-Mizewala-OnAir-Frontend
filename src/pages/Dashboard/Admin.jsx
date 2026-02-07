@@ -1,8 +1,8 @@
 // Local Modules
-import CreatePost from "./components/CreatePost";
+import Create from "./components/Create";
 
 function Admin() {
-  return <CreatePost />;
+  return <Create />;
 }
 
 export default Admin;

@@ -12,7 +12,7 @@ import { useBRTSF } from "@/hooks/SecurityHooks";
 import Send from "@icons/Send.svg";
 import Synchronize from "@icons/Synchronize.svg";
 
-function CreatePost() {
+function Create() {
   // Declarations
   const USER = useSelector((store) => store.COMMON_IDENTITY);
 
@@ -71,7 +71,13 @@ function CreatePost() {
       onSubmit={handleSubmit}
     >
       <div className="flex items-start gap-3 p-3">
-        <img width={40} height={40} src={USER.avatarUrl} alt="Avatar" />
+        <img
+          width={40}
+          height={40}
+          src={USER.profilePictureUrl}
+          alt="Profile-Picture"
+          className="rounded-full"
+        />
         <div className="w-full flex flex-col">
           <Link to="" className="font-semibold">
             {USER.name}
@@ -146,4 +152,4 @@ function CreatePost() {
   );
 }
 
-export default CreatePost;
+export default Create;

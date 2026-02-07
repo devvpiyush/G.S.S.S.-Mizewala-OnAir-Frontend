@@ -27,8 +27,8 @@ function Banner({ USER_INFO }) {
           } rounded-full bg-white`}
         >
           <img
-            src={USER_INFO?.avatarUrl}
-            alt={`${USER_INFO?.name}' Avatar`}
+            src={USER_INFO?.profilePictureUrl}
+            alt={`${USER_INFO?.name}' Profile Picture`}
             style={{
               borderRadius: "50%",
               minWidth: "66px",

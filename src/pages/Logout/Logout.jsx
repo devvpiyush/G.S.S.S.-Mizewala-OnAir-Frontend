@@ -24,6 +24,7 @@ function Logout() {
       dispatch(SpecialIdentityActions.LOGOUT());
 
       navigate("/");
+      window.location.reload();
     };
 
     logout();

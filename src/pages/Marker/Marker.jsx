@@ -131,7 +131,7 @@ function Marker() {
                 <MarkerStudentRow
                   _id={info._id}
                   name={info.name}
-                  avatarUrl={info.avatarUrl}
+                  profilePictureUrl={info.profilePictureUrl}
                   fatherName={info.reference.fatherName}
                   isMarked={info.marked}
                   Mark={handleMarkAttendence}

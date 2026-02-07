@@ -9,7 +9,7 @@ const INITIAL_STATE = {
   accountStatus: null,
   name: null,
   address: null,
-  avatarUrl:
+  profilePictureUrl:
     "https://res.cloudinary.com/dbelpwtoy/image/upload/v1767074898/Avatar_si1ngf.svg",
   gender: null,
   dateOfBirth: null,
@@ -29,7 +29,7 @@ const CommonIdentitySlice = createSlice({
       state.userType = action.payload.userType;
       state.accountStatus = action.payload.accountStatus;
       state.name = action.payload.name;
-      state.avatarUrl = action.payload.avatarUrl;
+      state.profilePictureUrl = action.payload.profilePictureUrl;
       state.gender = action.payload.gender;
       state.dateOfBirth = action.payload.dateOfBirth;
       state.address = action.payload.address;

@@ -1,7 +1,7 @@
 // Local Components
 import MarkStatus from "./MarkStatus";
 
-function MarkerStudentRow({ _id, avatarUrl, name, fatherName, Mark }) {
+function MarkerStudentRow({ _id, profilePictureUrl, name, fatherName, Mark }) {
   function handleMarkAttendence(status) {
     // Creating Entry Object
     Mark({
@@ -15,7 +15,7 @@ function MarkerStudentRow({ _id, avatarUrl, name, fatherName, Mark }) {
     <div className="flex flex-row justify-between px-3 py-2 rounded-sm">
       <div className="flex flex-row">
         <img
-          src={avatarUrl}
+          src={profilePictureUrl}
           style={{
             minWidth: "2.5rem",
             maxWidth: "2.5rem",

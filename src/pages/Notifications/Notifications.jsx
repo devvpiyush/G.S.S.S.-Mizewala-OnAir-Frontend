@@ -50,7 +50,8 @@ function Notifications() {
           {posts.map((Post) => (
             <Notification
               key={Post._id}
-              Avatar={Post.poster.avatarUrl}
+              profilePictureUrl={Post.poster.profilePictureUrl}
+              posterId={Post.poster._id}
               posterName={Post.poster.name}
               text={Post.content || "Loading..."}
               time={format(parseISO(Post.createdAt), "hh:mm a")}

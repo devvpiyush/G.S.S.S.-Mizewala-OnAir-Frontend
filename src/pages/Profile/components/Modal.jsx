@@ -1,5 +1,5 @@
 // External Modules
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 // Local Modules
 import { APIsContext } from "@/storage/APIs";
@@ -9,22 +9,24 @@ import api from "@utils/api";
 import CloseIcon from "@icons/Close.svg";
 
 function Modal({ url, file, neutralizeModal }) {
+  // Declarations
   const { SET_PROFILE_API_CALLED } = useContext(APIsContext);
+  const [ERROR, SET_ERROR] = useState("");
 
   const handleUpload = async () => {
     if (!file) return;
 
     const formData = new FormData();
-    formData.append("avatar", file);
+    formData.append("profilePicture", file);
 
     try {
       SET_PROFILE_API_CALLED(true);
-      const res = await api("PUT", "u/put/p/avatar", true, formData);
+      const res = await api("PUT", "u/put/p/profilePicture", true, formData);
       if (res.isSuccess) {
         window.location.reload();
       }
     } catch (error) {
-      alert("Failed to upload avatar");
+      SET_ERROR(error);
     } finally {
       SET_PROFILE_API_CALLED(false);
     }
@@ -55,7 +57,7 @@ function Modal({ url, file, neutralizeModal }) {
           Profile Preview
         </h2>
 
-        {/* Avatar Preview */}
+        {/* Profile Picture Preview */}
         <div className="mb-6 flex justify-center">
           <div className="flex h-32 w-32 items-center justify-center rounded-full bg-gray-100 ring-4 ring-gray-200">
             {url ? (
@@ -69,6 +71,12 @@ function Modal({ url, file, neutralizeModal }) {
             )}
           </div>
         </div>
+
+        {ERROR && (
+          <p className="text-center text-sm text-red-500 font-semibold mb-2">
+            {ERROR}
+          </p>
+        )}
 
         {/* Action Button */}
         <div className="flex justify-center">
