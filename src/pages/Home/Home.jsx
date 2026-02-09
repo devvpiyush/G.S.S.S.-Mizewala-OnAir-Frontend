@@ -23,7 +23,7 @@ function Home() {
     const response = await api("GET", "public/latestupdate", false);
     if (response.isSuccess) {
       SET_NOTIFY(true);
-      SET_NEW_UPDATE_DATA(response.mongodata);
+      SET_NEW_UPDATE_DATA(response.data);
     }
   }
 

@@ -14,6 +14,10 @@ const ERRORS = {
     action: "SHOW_TOAST",
   },
 
+  PROFILE_NOT_FOUND: {
+    action: "REDIRECT_HOME",
+  },
+
   NOT_LOGGED_IN: {
     action: "DO_NOTHING",
   },

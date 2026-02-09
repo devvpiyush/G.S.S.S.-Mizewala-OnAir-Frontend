@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 import Holiday_Light from "@graphics/Holiday_Light.svg";
 
 // Local Modules
-import { APIsContext } from "@/storage/APIs";
+import { APIsContext } from "@/contexts/APIs";
 import { useHoliday } from "@hooks/ContextHooks";
 import MarkerStudentRow from "./components/MarkerStudentRow";
 import Preview from "../Dashboard/components/Preview";
@@ -53,7 +53,7 @@ function Marker() {
       `t/marker/class/${SP_USER.teacherInfo.assignedClass}`,
     );
     if (response.isSuccess) {
-      UPDATE_STD_LIST(response.mongodata);
+      UPDATE_STD_LIST(response.data);
     }
   }
 

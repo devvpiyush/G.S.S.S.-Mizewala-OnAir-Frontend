@@ -6,7 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 // Local Modules
 import api from "@utils/api.js";
 import API_Loader from "@components/API_Loader";
-import { APIsContext } from "@/storage/APIs";
+import { APIsContext } from "@/contexts/APIs";
 import Banner from "./components/Banner";
 import Hotbar from "./components/Hotbar";
 import Modal from "./components/Modal";
@@ -28,7 +28,7 @@ function Profile() {
   async function callAPI() {
     SET_AUTH_API_CALLED(true);
     const response = await api("GET", `u/get/p/${id}`);
-    UPDATE_USER_INFO(response.mongodata);
+    UPDATE_USER_INFO(response.data);
   }
 
   function neutralizeModal() {
@@ -36,11 +36,11 @@ function Profile() {
   }
 
   useEffect(() => {
-    if (!id && USER?._id) {
-      navigate(`/profile/${USER._id}`, { replace: true });
-    } else if (id && USER?._id) {
+    if (id) {
       callAPI();
       SET_AUTH_API_CALLED(false);
+    } else if (!id && USER?._id) {
+      navigate(`/profile/${USER._id}`, { replace: true });
     }
   }, [id, USER?._id, navigate]);
 

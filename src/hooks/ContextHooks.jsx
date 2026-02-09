@@ -2,11 +2,11 @@
 import { useContext } from "react";
 
 // 1. Basic Preferences Context
-import PrefContext from "@/storage/Preferences";
+import PrefContext from "@/contexts/Preferences";
 
 export const usePreference = () => useContext(PrefContext);
 
 // 2. Holiday Context
-import HolidayContext from "@/storage/Holiday";
+import HolidayContext from "@/contexts/Holiday";
 
 export const useHoliday = () => useContext(HolidayContext);

@@ -8,7 +8,7 @@ function Quote() {
     try {
       const response = await api("GET", "public/quote", false);
       if (response.isSuccess) {
-        SET_QUOTE(response.mongodata);
+        SET_QUOTE(response.data);
       }
     } catch (error) {
       SET_QUOTE("Teachers plant seeds of knowledge that grow forever.");

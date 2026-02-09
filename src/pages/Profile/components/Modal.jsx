@@ -2,7 +2,7 @@
 import { useContext, useState } from "react";
 
 // Local Modules
-import { APIsContext } from "@/storage/APIs";
+import { APIsContext } from "@/contexts/APIs";
 import api from "@utils/api";
 
 // Assets

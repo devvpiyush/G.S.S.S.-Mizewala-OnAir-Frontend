@@ -1,13 +1,13 @@
-// Dependencies (Block)
+// External Modules
 import { Provider as ReduxProvider } from "react-redux";
 
-// Context API Providers (Block)
-import APIsProvider from "./storage/APIs";
-import { HolidayProvider } from "./storage/Holiday";
-import { PrefProvider } from "./storage/Preferences";
-import { AuthProvider } from "./storage/Auth";
+// Context API Providers
+import APIsProvider from "@/contexts/APIs";
+import { HolidayProvider } from "@/contexts/Holiday";
+import { PrefProvider } from "@/contexts/Preferences";
+import { AuthProvider } from "@/contexts/Auth";
 
-// React Redux (Block)
+// Local Modules
 import STORE from "./store/index";
 
 function RootProvider({ children }) {

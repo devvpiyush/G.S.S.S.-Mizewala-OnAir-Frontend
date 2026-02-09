@@ -14,7 +14,7 @@ function ReleaseNotes() {
   async function getNotes() {
     const response = await api("GET", "public/updates", false);
     if (response.isSuccess) {
-      UPDATE_RELEASE_NOTES(response.mongodata);
+      UPDATE_RELEASE_NOTES(response.data);
     }
   }
 

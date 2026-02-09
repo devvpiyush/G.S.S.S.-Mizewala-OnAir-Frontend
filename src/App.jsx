@@ -11,7 +11,8 @@ import "./App.css";
 import AppLoader from "@components/AppLoader";
 import health from "@utils/health.js";
 import heartbeat from "@utils/heartbeat.js";
-import { APIsContext } from "./storage/APIs";
+import { APIsContext } from "./contexts/APIs";
+import { BPS } from "@/contexts/Protectors";
 
 function App() {
   // Declarations
@@ -47,10 +48,10 @@ function App() {
     return <AppLoader />;
   }
   return (
-    <>
+    <BPS>
       <Outlet />
       <Toaster />
-    </>
+    </BPS>
   );
 }
 

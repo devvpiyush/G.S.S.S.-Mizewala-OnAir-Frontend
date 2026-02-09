@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useBSF } from "@hooks/SecurityHooks";
 import API_Loader from "@components/API_Loader";
 import useHead from "@hooks/Head.jsx";
-import { APIsContext } from "@/storage/APIs";
+import { APIsContext } from "@/contexts/APIs";
 import api from "@utils/api";
 import { SpecialIdentityActions } from "@/store/slices/SpecialIdentitySlice";
 import { CommonIdentityActions } from "@/store/slices/CommonIdentitySlice";
@@ -61,26 +61,26 @@ function Login() {
         miPin,
         password,
       });
-      let refObj = response.mongodata.reference;
-      delete response.mongodata.reference;
+      let refObj = response.data.reference;
+      delete response.data.reference;
       dispatch(
         CommonIdentityActions.SETUP_NEW_USER({
-          ...response.mongodata,
+          ...response.data,
         }),
       );
-      if (response.mongodata.userType === "Teacher") {
+      if (response.data.userType === "Teacher") {
         dispatch(
           SpecialIdentityActions.SETUP_TEACHER({
             ...refObj,
           }),
         );
-      } else if (response.mongodata.userType === "Student") {
+      } else if (response.data.userType === "Student") {
         dispatch(
           SpecialIdentityActions.SETUP_STUDENT({
             ...refObj,
           }),
         );
-      } else if (response.mongodata.userType === "Admin") {
+      } else if (response.data.userType === "Admin") {
         dispatch(
           SpecialIdentityActions.SETUP_ADMIN({
             ...refObj,
