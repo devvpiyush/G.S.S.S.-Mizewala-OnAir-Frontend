@@ -2,16 +2,15 @@
 import { Form, Link } from "react-router-dom";
 import { useContext, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 // Local Modules
 import { useBSF } from "@hooks/SecurityHooks";
+import { useOrganizer } from "@hooks/Manager";
 import API_Loader from "@components/API_Loader";
 import useHead from "@hooks/Head.jsx";
 import { APIsContext } from "@/contexts/APIs";
 import api from "@utils/api";
-import { SpecialIdentityActions } from "@/store/slices/SpecialIdentitySlice";
-import { CommonIdentityActions } from "@/store/slices/CommonIdentitySlice";
 
 // Icons
 import Open_Eye from "@icons/Open_Eye.svg";
@@ -24,12 +23,13 @@ function Login() {
   useHead({
     title: "Login | G.S.S.S. Mirzewala",
   });
+
   // Declarations
+  const navigate = useNavigate();
+  const organizeUser = useOrganizer();
   const USER = useSelector((store) => store.COMMON_IDENTITY);
   const { LOGIN_API_CALLED, SET_LOGIN_API_CALLED, AUTH_API_CALLED } =
     useContext(APIsContext);
-  const navigate = useNavigate();
-  const dispatch = useDispatch();
 
   // States
   const [MI_PIN, SET_MI_PIN] = useState("");
@@ -61,32 +61,7 @@ function Login() {
         miPin,
         password,
       });
-      let refObj = response.data.reference;
-      delete response.data.reference;
-      dispatch(
-        CommonIdentityActions.SETUP_NEW_USER({
-          ...response.data,
-        }),
-      );
-      if (response.data.userType === "Teacher") {
-        dispatch(
-          SpecialIdentityActions.SETUP_TEACHER({
-            ...refObj,
-          }),
-        );
-      } else if (response.data.userType === "Student") {
-        dispatch(
-          SpecialIdentityActions.SETUP_STUDENT({
-            ...refObj,
-          }),
-        );
-      } else if (response.data.userType === "Admin") {
-        dispatch(
-          SpecialIdentityActions.SETUP_ADMIN({
-            ...refObj,
-          }),
-        );
-      }
+      organizeUser(response.data, response.data.reference);
       navigate("/");
     } catch (error) {
       SET_ERROR(error?.message || "Something went wrong!");
