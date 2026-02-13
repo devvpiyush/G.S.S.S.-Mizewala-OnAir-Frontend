@@ -2,7 +2,7 @@
 import Insights from "./components/Insights";
 
 function Student() {
-  return <Insights />;
+  return <>{/* <Insights /> */}</>;
 }
 
 export default Student;

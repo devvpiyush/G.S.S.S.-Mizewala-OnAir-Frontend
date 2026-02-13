@@ -93,7 +93,8 @@ function Create() {
               onChange={(e) => {
                 UPDATE_CONTENT(e.target.value);
               }}
-              className="w-full min-h-20 max-h-50 outline-none font-normal text-black resize-none"
+              className="w-full min-h-20 max-h-50 outline-none font-normal text-black resize-none tracking-wide"
+              style={{ fontFamily: "Poppins, sans-serif" }}
             />
             {/* {selectedImage && (
               <img

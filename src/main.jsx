@@ -26,9 +26,8 @@ import Profile from "@page/Profile/Profile";
 import Notifications from "@page/Notifications/Notifications";
 import Logout from "@page/Logout/Logout";
 import Dashboard from "@page/Dashboard/Dashboard";
-
-// Dashboard Tools
 import Marker from "@page/Marker/Marker";
+import Music from "@page/Music/Music";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +46,7 @@ const router = createBrowserRouter([
           { path: "profile/:id", element: <Profile /> },
           { path: "dashboard", element: <Dashboard /> },
           { path: "dashboard/marker", element: <Marker /> },
+          { path: "music", element: <Music /> },
         ],
       },
       {

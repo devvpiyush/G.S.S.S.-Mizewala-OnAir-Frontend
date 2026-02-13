@@ -7,13 +7,38 @@ import styles from "./styles/Tools.module.css";
 
 // Assets
 import MarkerIcon from "@icons/Marker.svg";
+import HeadphonesIcon from "@icons/Headphones.svg";
 
 function Tools() {
   const SP_INFO = useSelector((store) => store.SPECIAL_IDENTITY);
   const navigate = useNavigate();
   return (
     <div className="w-full rounded-sm flex flex-col sm:flex-row items-center justify-between gap-8">
-      {SP_INFO.teacherInfo.assignedClass !== null && (
+      {/* <div className={styles.outline}>
+        <div className="flex flex-col gap-2">
+          <div className="w-full flex flex-col items-center justify-center gap-4">
+            <img src={HeadphonesIcon} alt="Marker Icon" className="max-w-10" />
+            <h4 className="text-center font-semibold">Music Player</h4>
+          </div>
+          <div>
+            <p className="text-center font-light text-[15px] px-3">
+              Play the right songs based on your mood with Music Player.
+              National Angthem, Prayers & Motivational music Available.
+            </p>
+          </div>
+        </div>
+        <div className="flex items-center justify-center py-3">
+          <button
+            className={styles.BUTTON}
+            onClick={() => {
+              navigate("/music");
+            }}
+          >
+            Next
+          </button>
+        </div>
+      </div> */}
+      {/* {SP_INFO.teacherInfo.assignedClass !== null && (
         <div className={styles.outline}>
           <div className="flex flex-col gap-2">
             <div className="w-full flex flex-col items-center justify-center gap-4">
@@ -39,7 +64,7 @@ function Tools() {
             </button>
           </div>
         </div>
-      )}
+      )} */}
     </div>
   );
 }
