@@ -19,7 +19,7 @@ const Routes = [
   { path: "/release_notes", type: "public" },
   { path: "/notifications", type: "public" },
   { path: "/profile", type: "private" },
-  { path: "/music", type: "private", access: ["Teacher"] },
+  { path: "/music", type: "public" },
 ];
 
 export const BPS = ({ children }) => {
