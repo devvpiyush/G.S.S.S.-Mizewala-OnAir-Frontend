@@ -3,7 +3,6 @@
 /* Fonts */
 @import "@fontsource/saira";
 @import "@fontsource/inter";
-@import "@fontsource/podkova";
 
 :root {
   --primary: #ff9409ec;

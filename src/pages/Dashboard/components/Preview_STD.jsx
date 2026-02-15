@@ -1,11 +1,11 @@
-function Preview_STD({ name, fatherName, status }) {
+function Preview_STD({ name, parentName, status }) {
   return (
     <div className="w-full flex items-center justify-between">
       <div className="flex flex-row">
         <div className="px-1 flex flex-col items-start justify-start">
           <span className="font-semibold">{name}</span>
           <span className="font-semibold tracking-wide text-[14px] text-[#c0c0c0]">
-            S/O {fatherName}
+            S/O {parentName}
           </span>
         </div>
       </div>

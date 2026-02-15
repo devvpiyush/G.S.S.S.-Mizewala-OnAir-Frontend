@@ -19,7 +19,7 @@ const MarkerSheetSlice = createSlice({
         state.push({
           _id: action.payload._id,
           name: action.payload.name,
-          fatherName: action.payload.fatherName,
+          parentName: action.payload.parentName,
           status: action.payload.status,
         });
       }

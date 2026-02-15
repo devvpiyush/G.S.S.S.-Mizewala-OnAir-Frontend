@@ -42,7 +42,7 @@ function Preview({ UPDATE_PREVIEW_STATE }) {
             return (
               <Preview_STD
                 name={STD.name}
-                fatherName={STD.fatherName}
+                parentName={STD.parentName}
                 status={STD.status}
                 key={STD._id}
               />

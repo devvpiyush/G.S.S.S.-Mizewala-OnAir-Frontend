@@ -132,7 +132,7 @@ function Marker() {
                   _id={info._id}
                   name={info.name}
                   profilePictureUrl={info.profilePictureUrl}
-                  fatherName={info.reference.fatherName}
+                  parentName={info.reference.parentName}
                   isMarked={info.marked}
                   Mark={handleMarkAttendence}
                   key={info._id}

@@ -14,7 +14,7 @@ function Tools() {
   const navigate = useNavigate();
   return (
     <div className="w-full rounded-sm flex flex-col sm:flex-row items-center justify-between gap-8">
-      {/* <div className={styles.outline}>
+      <div className={styles.outline}>
         <div className="flex flex-col gap-2">
           <div className="w-full flex flex-col items-center justify-center gap-4">
             <img src={HeadphonesIcon} alt="Marker Icon" className="max-w-10" />
@@ -37,7 +37,7 @@ function Tools() {
             Next
           </button>
         </div>
-      </div> */}
+      </div>
       {/* {SP_INFO.teacherInfo.assignedClass !== null && (
         <div className={styles.outline}>
           <div className="flex flex-col gap-2">

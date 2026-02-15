@@ -12,8 +12,7 @@ const INITIAL_STATE = {
   },
   studentInfo: {
     class: null,
-    fatherName: null,
-    motherName: null,
+    parentName: null,
     rollNumber: null,
     section: null,
   },
@@ -37,8 +36,7 @@ const SpecialIdentitySlice = createSlice({
     },
     SETUP_STUDENT: (state, action) => {
       state.studentInfo.class = action.payload.class;
-      state.studentInfo.fatherName = action.payload.fatherName;
-      state.studentInfo.motherName = action.payload.motherName;
+      state.studentInfo.parentName = action.payload.parentName;
       state.studentInfo.rollNumber = action.payload.rollNumber;
       state.studentInfo.section = action.payload.section;
     },

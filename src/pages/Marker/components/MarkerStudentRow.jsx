@@ -1,13 +1,13 @@
 // Local Components
 import MarkStatus from "./MarkStatus";
 
-function MarkerStudentRow({ _id, profilePictureUrl, name, fatherName, Mark }) {
+function MarkerStudentRow({ _id, profilePictureUrl, name, parentName, Mark }) {
   function handleMarkAttendence(status) {
     // Creating Entry Object
     Mark({
       _id,
       name,
-      fatherName,
+      parentName,
       status,
     });
   }
@@ -27,7 +27,7 @@ function MarkerStudentRow({ _id, profilePictureUrl, name, fatherName, Mark }) {
         <div className="flex flex-col items-start justify-start px-3">
           <span className="font-semibold">{name}</span>
           <span className="font-semibold text-sm text-[#c0c0c0] tracking-wide">
-            S/O {fatherName}
+            S/O {parentName}
           </span>
         </div>
       </div>
