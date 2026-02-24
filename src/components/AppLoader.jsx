@@ -1,7 +1,8 @@
-// Framer Motion (Animations)
+// External Modules
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
-function Loader() {
+function Loader({ isLoaderIncluded = false }) {
   const BrandName = [
     { text: "G.", color: "text-orange-500" },
     { text: "S.", color: "text-orange-500" },
@@ -18,9 +19,34 @@ function Loader() {
     { text: "l", color: "text-green-700" },
     { text: "a", color: "text-green-700" },
   ];
+
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    if (!isLoaderIncluded) return;
+    const duration = 30000; // 30 seconds in ms
+    const intervalTime = 100; // update every 100ms
+    const increment = 100 / (duration / intervalTime);
+
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        const next = prev + increment;
+        if (next >= 100) {
+          clearInterval(interval);
+          return 100;
+        }
+        return next;
+      });
+    }, intervalTime);
+
+    return () => clearInterval(interval);
+  }, [isLoaderIncluded]);
+
   return (
-    <div className="flex flex-col items-center justify-between h-screen bg-white">
-      <div></div>
+    <div
+      className={`py-4 flex flex-col items-center ${isLoaderIncluded ? "justify-between" : "justify-center"} h-screen bg-white`}
+    >
+      {isLoaderIncluded && <div></div>}
       <h1 className="flex text-3xl font-semibold tracking-widest">
         {BrandName.map((letter, i) => (
           <motion.span
@@ -40,15 +66,14 @@ function Loader() {
           </motion.span>
         ))}
       </h1>
-      <div></div>
-      {/* <div className="pb-4">
-        <h2
-          className="font-semibold tracking-wider"
-          style={{ fontFamily: "Inter, sans-serif" }}
-        >
-          Setting up the app...{" "}
-        </h2>
-      </div> */}
+      {isLoaderIncluded && (
+        <div className="max-w-60 min-w-60 p-1 border-2 border-[#B3D89C] rounded-full">
+          <div
+            className={`p-1.25 bg-[#D0EFB1] rounded-full`}
+            style={{ width: `${progress}%` }}
+          ></div>
+        </div>
+      )}
     </div>
   );
 }

@@ -13,7 +13,7 @@ const Routes = [
   { path: "/logout", type: "private" },
   { path: "/gallery", type: "public" },
   { path: "/dashboard", type: "private" },
-  { path: "/dashboard/marker", type: "private", access: ["Teacher"] },
+  { path: "/marker", type: "private", access: ["Teacher"] },
   { path: "/about", type: "public" },
   { path: "/credits", type: "public" },
   { path: "/release_notes", type: "public" },
@@ -36,17 +36,22 @@ export const BPS = ({ children }) => {
         location.pathname.startsWith(route.path + "/"),
     );
 
+    // 1️⃣ Unknown route
     if (!included && !location.pathname.startsWith("/profile/")) {
       navigate("/", { replace: true });
+      return;
     }
 
+    // 2️⃣ Private route but not logged in
     if (included?.type === "private" && AUTH_API_CALLED && !USER?.isLoggedIn) {
       navigate("/", { replace: true });
+      return;
     }
 
+    // 3️⃣ Role restriction
     if (
       included?.access &&
-      included?.type === "private" &&
+      included.type === "private" &&
       AUTH_API_CALLED &&
       USER?.isLoggedIn &&
       !included.access.includes(USER.userType)

@@ -1,7 +1,7 @@
 // External Modules
 import { Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { Toaster } from "react-hot-toast";
 
 // Styles Sheets
@@ -45,7 +45,7 @@ function App() {
   }, [AUTH_API_CALLED]);
 
   if (AUTH_API_CALLED || INTERNALS_API_CALLED) {
-    return <AppLoader />;
+    return <AppLoader isLoaderIncluded={true} />;
   }
   return (
     <BPS>

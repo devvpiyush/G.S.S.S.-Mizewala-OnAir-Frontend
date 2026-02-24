@@ -45,7 +45,7 @@ const router = createBrowserRouter([
           { path: "profile/", element: <Profile /> },
           { path: "profile/:id", element: <Profile /> },
           { path: "dashboard", element: <Dashboard /> },
-          { path: "dashboard/marker", element: <Marker /> },
+          { path: "marker", element: <Marker /> },
           { path: "music", element: <Music /> },
         ],
       },

@@ -8,11 +8,14 @@ import { useSelector } from "react-redux";
 import Preview_STD from "./Preview_STD";
 
 function Preview({ UPDATE_PREVIEW_STATE }) {
-  const store = useSelector((store) => store.MARKER_SHEET);
+  const SHEET = useSelector((store) => store.MARKER_SHEET);
   const STD_LIST = [];
-  JSON.parse(JSON.stringify(store)).map((entries) => {
+  JSON.parse(JSON.stringify(SHEET)).map((entries) => {
     STD_LIST.push(entries);
   });
+  function handleSubmit() {
+    console.log("Hi", SHEET);
+  }
   return (
     <Form className="bg-white min-w-[90vw] max-w-[90vh] max-md:max-w-[350px] rounded-[10px] shadow-lg">
       <div className="flex items-center justify-between py-3 px-4">
@@ -27,6 +30,7 @@ function Preview({ UPDATE_PREVIEW_STATE }) {
         <button
           type="submit"
           className="font-semibold text-white bg-blue-400 px-3 py-1 rounded-sm cursor-pointer max-sm:text-sm"
+          onClick={handleSubmit}
         >
           Submit
         </button>
@@ -55,22 +59,3 @@ function Preview({ UPDATE_PREVIEW_STATE }) {
 }
 
 export default Preview;
-
-// Submit Action
-export async function PreviewAction({ request }) {
-  const store = useSelector((store) => store.MARKER_SHEET);
-
-  // Sanitizing Data
-  const MI_PIN = useBSF(formData.get("MI_PIN"));
-  const Password = useBSF(formData.get("Password"));
-
-  // Creating Credentials Object
-  const Credentials = {
-    MI_PIN: MI_PIN,
-    Password: Password,
-  };
-
-  // Converting Credentials into JSON Format
-  const CREDENTIALS_JSON = JSON.stringify(Credentials);
-  console.log("JSON Credentials:", CREDENTIALS_JSON);
-}
